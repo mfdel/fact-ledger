@@ -1,0 +1,18 @@
+# Synthetic corpus case. No real company data.
+#
+# Decoy only (story S4-02, criterion 2). nimbus-39 on p15 is ARR at 2025-12-31 in a deck
+# published 2025-03-01, so it is a projection. Realized rate: nimbus-01 (5,400,000) to nimbus-02
+# (8,064,000), 49.33 points. Implied rate: nimbus-02 to nimbus-39, 55.01 points. The plan grows
+# faster than the record, but the gap of 5.68 is inside the margin of 10 points. So this case
+# tests the margin, not only the direction. With nimbus-03 the gap is 8.10, still inside.
+#
+# Base: clean-nimbus (see manifest.yaml). This file holds only the rows that the case adds
+# or replaces. A row replaces the base row with the same observation_id.
+defaults: {entity_id: nimbus, origin_id: nimbus-management, document_id: nimbus-deck-2025,
+           source_type: deck, reliability: 4, bias_direction: up, published_date: 2025-03-01,
+           unit: EUR, currency: EUR}
+observations:
+  # DECOY: faster than nimbus-01 to nimbus-02, by less than 10 points a year.
+  - {observation_id: nimbus-39, metric_id: arr, value: "12500000", stated_precision: "50000",
+     period_start: 2025-12-31, period_end: 2025-12-31, period_type: point_in_time,
+     as_of_date: 2025-12-31, locator: "p15 plan", stated_label: "ARR"}  # printed "€12.5m"

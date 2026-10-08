@@ -1,0 +1,5 @@
+defects:
+  - defect_type: arithmetic
+    location: "vireo-deck-2026#p6"
+    expected_class: inconsistent
+    note: 'the printed EBITDA margin is not the printed EBITDA over the printed revenue'

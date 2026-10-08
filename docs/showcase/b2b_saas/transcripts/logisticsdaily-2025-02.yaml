@@ -1,0 +1,4 @@
+# logisticsdaily-2025-02.txt, extract_text_v1.md. Not reviewed.
+defaults: {entity_id: halyard, origin_id: logisticsdaily, document_id: logisticsdaily-2025-02, reliability: 2, source_type: press, published_date: 2025-02-24, cited_origin_id: halyard-management}
+observations:
+  - {observation_id: logisticsdaily-2025-02-01, metric_id: arr, value: "19700000", unit: EUR, currency: EUR, stated_precision: "50000", period_start: 2024-12-31, period_end: 2024-12-31, period_type: point_in_time, as_of_date: 2024-12-31, locator: para 2, stated_label: ARR}  # printed "19.7"

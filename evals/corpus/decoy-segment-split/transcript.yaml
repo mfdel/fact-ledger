@@ -1,0 +1,31 @@
+# Synthetic corpus case. No real company data.
+#
+# Decoy only. The segment qualifier needs a corpus case of its own. One metric, one period,
+# two segments and the group. The three values
+# differ, and they are three facts, not one fact with three readings. A segment value never
+# compares with another segment or with the group, so the validator must raise no finding here.
+# Without the segment qualifier the three rows give one divergence, so this case fails when the
+# qualifier is lost.
+#
+# The last two rows hold the other half of the rule: two rows that share every qualifier stay
+# one fact. The press row repeats the group value from a second origin, so it corroborates.
+defaults: {entity_id: vertex, origin_id: vertex-management, document_id: vertex-deck-2025,
+           source_type: deck, reliability: 4, bias_direction: up, published_date: 2025-03-01,
+           unit: EUR, currency: EUR}
+observations:
+  - {observation_id: vertex-01, metric_id: arr, value: "150000000", stated_precision: "50000",
+     period_start: 2024-12-31, period_end: 2024-12-31, period_type: point_in_time,
+     as_of_date: 2024-12-31, locator: "p5", stated_label: "ARR",
+     segment: "Platform"}  # printed "Platform ARR  150.0" under "ARR by segment (€m)"
+  - {observation_id: vertex-02, metric_id: arr, value: "60000000", stated_precision: "50000",
+     period_start: 2024-12-31, period_end: 2024-12-31, period_type: point_in_time,
+     as_of_date: 2024-12-31, locator: "p5", stated_label: "ARR",
+     segment: "Services"}  # printed "Services ARR  60.0"
+  - {observation_id: vertex-03, metric_id: arr, value: "210000000", stated_precision: "50000",
+     period_start: 2024-12-31, period_end: 2024-12-31, period_type: point_in_time,
+     as_of_date: 2024-12-31, locator: "p5", stated_label: "ARR"}  # printed "Group ARR  210.0"
+  - {observation_id: vertex-04, metric_id: arr, value: "210000000", stated_precision: "50000",
+     origin_id: vertex-press, document_id: vertex-press-2025, source_type: press,
+     reliability: 3, bias_direction: neutral, period_start: 2024-12-31, period_end: 2024-12-31,
+     period_type: point_in_time, as_of_date: 2024-12-31, locator: "para 2",
+     stated_label: "ARR"}  # printed "group ARR of €210.0m"

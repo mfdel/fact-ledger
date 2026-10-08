@@ -1,0 +1,23 @@
+# Synthetic corpus case. No real company data.
+#
+# Decoy (story S3-25). The quarter twin of definitional-revenue-label, which plants
+# one ambiguity for a full-year "Revenue" row. Here p3 says "Revenue" for Q3 2025 with the eight
+# candidates that the extractor writes. The only resolved candidate is the ARR at the quarter
+# end, about four times one quarter of revenue. A quarter is a flow, so it never meets an ARR
+# (D2.6 step 1): the row has no candidate and must raise no flag.
+#
+# No base: a Nimbus base holds an MRR at each quarter end, and the mrr rule is deferred
+# (decision 29), so that MRR would meet the quarter row.
+defaults: {entity_id: kestrel, origin_id: kestrel-management, document_id: kestrel-deck-2025,
+           source_type: deck, reliability: 4, bias_direction: up, published_date: 2025-11-01,
+           unit: EUR, currency: EUR}
+observations:
+  - {observation_id: kestrel-01, metric_id: arr, value: "100000000", stated_precision: "50000",
+     period_start: 2025-09-30, period_end: 2025-09-30, period_type: point_in_time,
+     as_of_date: 2025-09-30, locator: "p2 KPIs", stated_label: "ARR"}  # printed "€100.0m"
+  - {observation_id: kestrel-02, metric_id: revenue_unspecified, value: "25000000",
+     stated_precision: "50000", period_start: 2025-07-01, period_end: 2025-09-30,
+     period_type: quarter, as_of_date: 2025-09-30, locator: "p3 quarterly table",
+     stated_label: "Revenue", definition_status: ambiguous,
+     candidate_metric_ids: [revenue_recognised, arr, arr_run_rate, billings, revenue_subscription,
+                            revenue_gross, revenue_usage, mrr]}  # printed "Q3 2025: 25.0"

@@ -1,0 +1,6 @@
+base: clean-nimbus
+defects:
+  - defect_type: cross_origin_contradiction
+    location: "founder-podcast-2025-01#12:40"
+    expected_class: contested
+    note: 'the interview value differs from the deck'

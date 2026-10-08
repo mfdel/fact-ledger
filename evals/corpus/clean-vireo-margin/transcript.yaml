@@ -1,0 +1,27 @@
+# Synthetic corpus case. No real company data.
+#
+# Clean control. Zero planted defects. The twin of
+# arithmetic-ebitda-margin with the printed margin at 30.0%: the same four rows, the same
+# locators and the same labels. 100 * 60.0 / 200.0 is 30.0, so the identity
+# ebitda_margin_from_revenue holds and the margin check must raise no flag (S3-20).
+# Tolerance: max(0.05 + 0.0325, 0.005 * 30.0) = 0.15 points of head room.
+defaults: {entity_id: vireo, origin_id: vireo-management, document_id: vireo-deck-2026,
+           source_type: deck, reliability: 4, bias_direction: up, published_date: 2026-03-01,
+           unit: EUR, currency: EUR}
+observations:
+  - {observation_id: vireo-01, metric_id: revenue_recognised, value: "200000000",
+     stated_precision: "50000", period_start: 2025-01-01, period_end: 2025-12-31,
+     period_type: fy, as_of_date: 2025-12-31, locator: "p6 P&L table",
+     stated_label: "Recognised revenue"}  # printed "200.0"
+  - {observation_id: vireo-02, metric_id: ebitda, value: "60000000",
+     stated_precision: "50000", period_start: 2025-01-01, period_end: 2025-12-31,
+     period_type: fy, as_of_date: 2025-12-31, locator: "p6 P&L table",
+     stated_label: "EBITDA"}  # printed "60.0"
+  - {observation_id: vireo-03, metric_id: ebitda_margin, value: "30.0",
+     stated_precision: "0.05", unit: percent, currency: null, period_start: 2025-01-01,
+     period_end: 2025-12-31, period_type: fy, as_of_date: 2025-12-31, locator: "p6",
+     stated_label: "EBITDA margin"}  # printed "30.0%"
+  - {observation_id: vireo-04, metric_id: ebitda_margin, value: "30.0",
+     stated_precision: "0.05", unit: percent, currency: null, period_start: 2025-01-01,
+     period_end: 2025-12-31, period_type: fy, as_of_date: 2025-12-31, locator: "p2 highlights",
+     stated_label: "EBITDA margin"}  # printed "30.0%"

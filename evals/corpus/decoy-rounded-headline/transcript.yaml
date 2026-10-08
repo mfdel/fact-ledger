@@ -1,0 +1,24 @@
+# Synthetic corpus case. No real company data.
+#
+# Decoys only. Architecture doc example: "~€8m ARR" and MRR €692k,
+# with no exact ARR at that date: MRR x 12 = 8,304,000 is inside the "~€8m" range. Do not add an
+# exact ARR here. Retention at the inequality boundary: nrr 91.0 against grr 91.05 holds.
+defaults: {entity_id: atlas, origin_id: atlas-management, document_id: atlas-deck-2025,
+           source_type: deck, reliability: 4, bias_direction: up, published_date: 2025-03-01,
+           unit: EUR, currency: EUR}
+observations:
+  - {observation_id: atlas-01, metric_id: arr, value: "8000000", stated_precision: "500000",
+     period_start: 2024-12-31, period_end: 2024-12-31, period_type: point_in_time,
+     as_of_date: 2024-12-31, locator: "p1", stated_label: "ARR"}  # printed "~€8m ARR"
+  - {observation_id: atlas-02, metric_id: mrr, value: "692000", stated_precision: "500",
+     period_start: 2024-12-31, period_end: 2024-12-31, period_type: point_in_time,
+     as_of_date: 2024-12-31, locator: "p5 chart", stated_label: "MRR"}  # printed "€692k"
+  - {observation_id: atlas-03, metric_id: revenue_recognised, value: "5100000",
+     stated_precision: "50000", period_start: 2024-01-01, period_end: 2024-12-31,
+     period_type: fy, as_of_date: 2024-12-31, locator: "p6", stated_label: "Net sales"}  # printed "€5.1m"
+  - {observation_id: atlas-04, metric_id: nrr, value: "91.0", stated_precision: "0.05",
+     unit: percent, currency: null, period_start: 2024-01-01, period_end: 2024-12-31,
+     period_type: fy, as_of_date: 2024-12-31, locator: "p8", stated_label: "NRR"}  # printed "91.0%"
+  - {observation_id: atlas-05, metric_id: grr, value: "91.05", stated_precision: "0.005",
+     unit: percent, currency: null, period_start: 2024-01-01, period_end: 2024-12-31,
+     period_type: fy, as_of_date: 2024-12-31, locator: "p8", stated_label: "GRR"}  # printed "91.05%"

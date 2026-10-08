@@ -1,0 +1,10 @@
+base: clean-nimbus
+defects:
+  - defect_type: denominator_drift
+    location: "nimbus-deck-2025#p6"
+    expected_class: invariant
+    note: 'customers_paying <= users_registered is violated'
+  - defect_type: denominator_drift
+    location: "nimbus-deck-2025#p6"
+    expected_class: invariant
+    note: 'seats_active <= seats_licensed is violated'

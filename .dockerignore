@@ -1,0 +1,8 @@
+*
+!pyproject.toml
+!uv.lock
+!README.md
+!alembic.ini
+!src/
+!data/dictionary/
+**/__pycache__

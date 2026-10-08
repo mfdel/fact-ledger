@@ -1,0 +1,13 @@
+identity_id	period_start	period_end	period_type	status	reason	qualifier
+arr_from_mrr	2023-12-31	2023-12-31	point_in_time	held
+arr_from_mrr	2024-12-31	2024-12-31	point_in_time	violated
+arr_ge_revenue_recognised	2023-12-31	2023-12-31	point_in_time	not_checked	arr not observed at 2022-12-31
+arr_ge_revenue_recognised	2024-12-31	2024-12-31	point_in_time	not_checked	condition not met: revenue_services plus revenue_hardware is below 10% of revenue_recognised
+churn_logo_annual_from_monthly	2024-01-01	2024-12-31	fy	held
+customers_paying_le_users_registered	2023-12-31	2023-12-31	point_in_time	not_checked	users_registered not observed at 2023-12-31
+customers_paying_le_users_registered	2024-12-31	2024-12-31	point_in_time	held
+mrr_bridge	2024-10-01	2024-12-31	quarter	violated
+net_new_arr_from_arr	2024-01-01	2024-12-31	fy	violated
+seats_active_le_seats_licensed	2024-12-31	2024-12-31	point_in_time	violated
+Checks: 3 held, 4 violated, 3 not checked. Use --checks to list them.
+Ambiguous rows: 0 inferred, 1 still ambiguous. Use --readings to list them.

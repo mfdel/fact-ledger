@@ -1,0 +1,6 @@
+base: clean-nimbus
+defects:
+  - defect_type: projection_break
+    location: "nimbus-deck-2025#p15 plan"
+    expected_class: projection
+    note: 'the p15 plan implies 73.6% growth a year; p4 shows 49.3% in the year before'

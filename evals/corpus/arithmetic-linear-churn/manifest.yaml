@@ -1,0 +1,5 @@
+defects:
+  - defect_type: arithmetic
+    location: "lumen-deck-2025#p10"
+    expected_class: inconsistent
+    note: 'annual churn is the linear monthly x 12'

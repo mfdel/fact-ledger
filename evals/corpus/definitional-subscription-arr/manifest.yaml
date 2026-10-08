@@ -1,0 +1,6 @@
+base: clean-nimbus
+defects:
+  - defect_type: definitional_switch
+    location: "nimbus-deck-2025#p16"
+    expected_class: definitional
+    note: '"Subscription ARR" against "ARR"'

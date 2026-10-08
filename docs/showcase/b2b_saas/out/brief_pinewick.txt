@@ -1,0 +1,83 @@
+## Fact table
+observation_id	metric_id	period_start	period_end	period_type	value	unit	origin_id	locator	definition_status	candidate_metric_ids
+pinewick-68	acv_avg	2024-01-01	2024-12-31	fy	74000	EUR	pinewick-management	p13	resolved
+pinewick-70	arpu	2024-12-01	2024-12-31	month	6148	EUR	pinewick-management	p6	resolved
+pinewick-01	arr	2023-12-31	2023-12-31	point_in_time	31000000	EUR	pinewick-management	p4 chart	resolved
+pinewick-02	arr	2024-12-31	2024-12-31	point_in_time	45000000	EUR	pinewick-management	p4 chart	resolved
+pinewick-15	arr	2024-12-31	2024-12-31	point_in_time	45000000	EUR	pinewick-management	p1	resolved
+techbeat-01	arr	2024-12-31	2024-12-31	point_in_time	45000000	EUR	techbeat	para 2	resolved
+pinewick-16	arr	2025-12-31	2025-12-31	point_in_time	63000000	EUR	pinewick-management	p15 plan	resolved
+pinewick-31	arr_contracted	2024-12-31	2024-12-31	point_in_time	47800000	EUR	pinewick-management	p3	resolved
+pinewick-30	arr_run_rate	2024-12-01	2024-12-31	month	45600000	EUR	pinewick-management	p9	resolved
+pinewick-69	asp	2024-01-01	2024-12-31	fy	9800	EUR	pinewick-management	p13	resolved
+pinewick-37	backlog_rpo	2024-12-31	2024-12-31	point_in_time	58000000	EUR	pinewick-management	p3	resolved
+pinewick-35	billings	2024-01-01	2024-12-31	fy	44800000	EUR	pinewick-management	p3	resolved
+pinewick-33	bookings_acv	2024-01-01	2024-12-31	fy	17500000	EUR	pinewick-management	p3	resolved
+pinewick-34	bookings_tcv	2024-01-01	2024-12-31	fy	39000000	EUR	pinewick-management	p3	resolved
+pinewick-71	burn_gross	2024-12-01	2024-12-31	month	3900000	EUR	pinewick-management	p19	resolved
+pinewick-72	burn_net	2024-12-01	2024-12-31	month	120000	EUR	pinewick-management	p19	resolved
+pinewick-46	churn_logo_annual	2024-01-01	2024-12-31	fy	6.0	percent	pinewick-management	p10	resolved
+pinewick-47	churn_logo_monthly	2024-01-01	2024-12-31	fy	0.5	percent	pinewick-management	p10 footnote	resolved
+pinewick-48	churn_revenue_gross_monthly	2024-01-01	2024-12-31	fy	0.35	percent	pinewick-management	p10	resolved
+pinewick-53	cohort_retention_curve	2024-01-01	2024-12-31	fy	93	percent	pinewick-management	p17	resolved
+pinewick-57	contract_annual_share	2024-12-31	2024-12-31	point_in_time	97	percent	pinewick-management	p13	resolved
+pinewick-56	contract_length_avg	2024-12-31	2024-12-31	point_in_time	30	months	pinewick-management	p13	resolved
+pinewick-54	customer_lifetime_months	2024-12-31	2024-12-31	point_in_time	200	months	pinewick-management	p17	resolved
+pinewick-55	customer_tenure_median	2024-12-31	2024-12-31	point_in_time	34	months	pinewick-management	p17	resolved
+pinewick-59	customers_active	2024-12-31	2024-12-31	point_in_time	598	count	pinewick-management	p6	resolved
+pinewick-66	customers_churned	2024-01-01	2024-12-31	fy	34	count	pinewick-management	p6	resolved
+pinewick-67	customers_enterprise_share	2024-12-31	2024-12-31	point_in_time	46	percent	pinewick-management	p6	resolved
+pinewick-65	customers_new	2024-01-01	2024-12-31	fy	140	count	pinewick-management	p6	resolved
+pinewick-13	customers_paying	2023-12-31	2023-12-31	point_in_time	520	count	pinewick-management	p6	resolved
+pinewick-14	customers_paying	2024-12-31	2024-12-31	point_in_time	610	count	pinewick-management	p6	resolved
+pinewick-36	deferred_revenue	2024-12-31	2024-12-31	point_in_time	15600000	EUR	pinewick-management	p3	resolved
+pinewick-49	grr	2024-01-01	2024-12-31	fy	95	percent	pinewick-management	p11	resolved
+pinewick-60	logos	2024-12-31	2024-12-31	point_in_time	560	count	pinewick-management	p6	resolved
+pinewick-03	mrr	2023-12-31	2023-12-31	point_in_time	2583000	EUR	pinewick-management	p7 chart	resolved
+pinewick-04	mrr	2024-09-30	2024-09-30	point_in_time	3520000	EUR	pinewick-management	p7 chart	resolved
+pinewick-05	mrr	2024-12-31	2024-12-31	point_in_time	3750000	EUR	pinewick-management	p7 chart	resolved
+pinewick-10	mrr_churned	2024-10-01	2024-12-31	quarter	32000	EUR	pinewick-management	p12 waterfall	resolved
+pinewick-09	mrr_contraction	2024-10-01	2024-12-31	quarter	21000	EUR	pinewick-management	p12 waterfall	resolved
+pinewick-07	mrr_expansion	2024-10-01	2024-12-31	quarter	118000	EUR	pinewick-management	p12 waterfall	resolved
+pinewick-06	mrr_new	2024-10-01	2024-12-31	quarter	165000	EUR	pinewick-management	p12 waterfall	resolved
+pinewick-08	mrr_reactivation	2024-10-01	2024-12-31	quarter	0	EUR	pinewick-management	p12 waterfall	resolved
+pinewick-32	net_new_arr	2024-01-01	2024-12-31	fy	14000000	EUR	pinewick-management	p4	resolved
+pinewick-50	nrr	2024-01-01	2024-12-31	fy	124	percent	pinewick-management	p11	resolved
+pinewick-51	nrr_cohort_12m	2024-01-01	2024-12-31	fy	127	percent	pinewick-management	p17	resolved
+pinewick-58	payment_terms_upfront_share	2024-12-31	2024-12-31	point_in_time	82	percent	pinewick-management	p13	resolved
+pinewick-42	recurring_revenue_share	2024-01-01	2024-12-31	fy	96	percent	pinewick-management	p5	resolved
+pinewick-52	renewal_rate	2024-01-01	2024-12-31	fy	93	percent	pinewick-management	p11	resolved
+pinewick-92	revenue_by_currency	2024-01-01	2024-12-31	fy	30100000	EUR	pinewick-management	p5	resolved
+pinewick-90	revenue_by_geography	2024-01-01	2024-12-31	fy	17000000	EUR	pinewick-management	p5	resolved
+pinewick-93	revenue_by_geography	2024-01-01	2024-12-31	fy	8200000	EUR	pinewick-management	p5	resolved
+pinewick-91	revenue_by_segment	2024-01-01	2024-12-31	fy	29500000	EUR	pinewick-management	p5	resolved
+pinewick-43	revenue_concentration_top1	2024-01-01	2024-12-31	fy	3	percent	pinewick-management	p13	resolved
+pinewick-45	revenue_concentration_top10	2024-01-01	2024-12-31	fy	18	percent	pinewick-management	p13	resolved
+pinewick-44	revenue_concentration_top5	2024-01-01	2024-12-31	fy	11	percent	pinewick-management	p13	resolved
+pinewick-41	revenue_hardware	2024-01-01	2024-12-31	fy	0	EUR	pinewick-management	p5	resolved
+pinewick-11	revenue_recognised	2023-01-01	2023-12-31	fy	26000000	EUR	pinewick-management	p8 P&L table	resolved
+pinewick-12	revenue_recognised	2024-01-01	2024-12-31	fy	38600000	EUR	pinewick-management	p8 P&L table	resolved
+pinewick-acc-01	revenue_recognised	2024-01-01	2024-12-31	fy	38610000	EUR	pinewick-auditor	note 4	resolved
+pinewick-40	revenue_services	2024-01-01	2024-12-31	fy	1300000	EUR	pinewick-management	p5	resolved
+pinewick-38	revenue_subscription	2024-01-01	2024-12-31	fy	36900000	EUR	pinewick-management	p5	resolved
+pinewick-39	revenue_usage	2024-01-01	2024-12-31	fy	400000	EUR	pinewick-management	p5	resolved
+pinewick-64	seat_utilisation	2024-12-31	2024-12-31	point_in_time	88	percent	pinewick-management	p6	resolved
+pinewick-63	seats_active	2024-12-31	2024-12-31	point_in_time	161000	count	pinewick-management	p6	resolved
+pinewick-62	seats_licensed	2024-12-31	2024-12-31	point_in_time	182000	count	pinewick-management	p6	resolved
+pinewick-61	users_registered	2024-12-31	2024-12-31	point_in_time	21000	count	pinewick-management	p6	resolved
+
+## Inconsistencies
+No findings for pinewick.
+
+## Corroboration
+metric_id	period_start	period_end	period_type	qualifier	count	documents
+revenue_recognised	2024-01-01	2024-12-31	fy		2 documents, 2 origins	pinewick-accounts-fy2024 (pinewick-auditor); pinewick-deck-2025 (pinewick-management)
+
+## Conspicuous absences
+No conspicuous absences for pinewick.
+
+## Patterns
+No patterns for pinewick.
+
+## Management questions
+No questions for pinewick.

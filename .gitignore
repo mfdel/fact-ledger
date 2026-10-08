@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+build/
+dist/
+
+# Tool caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.import_linter_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+
+# Local config and secrets
+.env
+.env.*
+!.env.example
+
+# Data: real company material never enters git
+data/private/*
+!data/private/.gitkeep
+data/*.db
+*.sqlite
+*.sqlite3
+
+# Editors and OS
+.DS_Store
+.idea/
+
+research_docs/

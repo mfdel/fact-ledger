@@ -1,0 +1,17 @@
+# Synthetic corpus case. No real company data.
+#
+# Planted: definitional_switch (D2.13 a). p2 says "Revenue" with no
+# definition. 7,100,000 matches neither recognised revenue (6,930,000) nor exit ARR (8,064,000).
+#
+# Base: clean-nimbus (see manifest.yaml). This file holds only the rows that the case adds
+# or replaces. A row replaces the base row with the same observation_id.
+defaults: {entity_id: nimbus, origin_id: nimbus-management, document_id: nimbus-deck-2025,
+           source_type: deck, reliability: 4, bias_direction: up, published_date: 2025-03-01,
+           unit: EUR, currency: EUR}
+observations:
+  # PLANTED: ambiguous label that matches no candidate metric.
+  - {observation_id: nimbus-12, metric_id: revenue_unspecified, value: "7100000",
+     stated_precision: "50000", period_start: 2024-01-01, period_end: 2024-12-31,
+     period_type: fy, as_of_date: 2024-12-31, locator: "p2 executive summary",
+     stated_label: "Revenue", definition_status: ambiguous,
+     candidate_metric_ids: [revenue_recognised, arr]}  # printed "Revenue 2024: €7.1m"

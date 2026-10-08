@@ -1,0 +1,715 @@
+# Metric dictionary (machine-readable). Owner: domain-expert.
+# Schema: fact_ledger.domain.Metric.
+# v0 (demo) set: sections 1 (revenue), 3 (retention) and 4 (customers), and the two burn metrics
+# of section 7. Not SaaS-only any more: section 8 adds the core listed-company
+# IFRS income-statement lines (S3-19).
+# An alias appears under one metric only (case-insensitive). A label that can mean two metrics is
+# not an alias of either: it is an alias of an umbrella id (suffix _unspecified, last section).
+# An observation with an umbrella id is always definition_status=ambiguous with candidates.
+# No identity uses an umbrella id, so it never enters a check or a derivation.
+# expected_for codes: b2b_saas, b2c_subscription, marketplace, dtc_commerce.
+metrics:
+  # --- Section 1: revenue and revenue quality ---
+  - metric_id: revenue_recognised
+    canonical_name: Recognised revenue (IFRS/K3)
+    aliases: [recognised revenue, revenue recognised, statutory revenue, IFRS revenue, net sales, net turnover, nettoomsättning, nettoomsætning, liikevaihto, Umsatzerlöse, netto-omzet, revenue from contracts with customers]
+    dimension: currency
+    stock_or_flow: flow
+    definition_note: >-
+      Revenue recognised under IFRS or local GAAP over the period. Not arr, not billings, not GMV.
+      Bare "revenue" is not an alias: in a SaaS deck it can mean ARR, recognised revenue or
+      billings. Bare "turnover" is not an alias: a marketplace deck can use it for gross
+      transaction value.
+    expected_for: [b2b_saas, b2c_subscription, marketplace, dtc_commerce]
+  - metric_id: revenue_gross
+    canonical_name: Gross revenue before pass-through
+    aliases: [gross revenue, total transaction revenue, revenue before pass-through]
+    dimension: currency
+    stock_or_flow: flow
+    definition_note: >-
+      Revenue before pass-through costs (for example seller payouts). Marketplace and DTC decks
+      often label it "revenue". Not revenue_recognised under a net (agent) model, and not GMV.
+    expected_for: [marketplace, dtc_commerce]
+  - metric_id: arr
+    canonical_name: Annual recurring revenue
+    aliases: [ARR, annual recurring revenue, annualised recurring revenue, recurring run-rate, live ARR, ending ARR]
+    dimension: currency
+    stock_or_flow: stock
+    definition_note: >-
+      Contracted recurring revenue from live customers, annualised, at a point in time. Excludes
+      services and one-off revenue. Not arr_run_rate (one period of all revenue, annualised) and
+      not arr_contracted (includes contracts not yet live). "Exit ARR" is not an alias: it can mean
+      year-end ARR or last-month revenue x 12. No ordering between arr_contracted, arr and
+      arr_run_rate is guaranteed; a deck that implies one has conflated them.
+    expected_for: [b2b_saas, b2c_subscription]
+  - metric_id: arr_run_rate
+    canonical_name: Annualised run-rate (last month x 12)
+    aliases: [run-rate ARR, ARR run-rate, run-rate revenue, revenue run-rate, annualised revenue, annualised run-rate]
+    dimension: currency
+    stock_or_flow: stock
+    definition_note: >-
+      One recent period of total revenue, annualised (usually last month x 12, sometimes last
+      quarter x 4; record which). Includes one-off and usage revenue. A different node from arr,
+      also when the deck labels it ARR.
+    expected_for: [b2b_saas, b2c_subscription]
+  - metric_id: arr_contracted
+    canonical_name: Contracted ARR (cARR)
+    aliases: [cARR, contracted ARR, committed ARR, booked ARR, signed ARR]
+    dimension: currency
+    stock_or_flow: stock
+    definition_note: Includes signed contracts that are not yet live or not yet billing. Not arr.
+    expected_for: [b2b_saas]
+  - metric_id: mrr
+    canonical_name: Monthly recurring revenue
+    aliases: [MRR, monthly recurring revenue, monthly recurring]
+    dimension: currency
+    stock_or_flow: stock
+    definition_note: >-
+      Contracted recurring revenue for one month, at a point in time. "Monthly revenue" is not an
+      alias: it includes one-off revenue.
+    expected_for: [b2b_saas, b2c_subscription]
+  - metric_id: mrr_new
+    canonical_name: New MRR from new customers
+    aliases: [new MRR, new business MRR, new logo MRR]
+    dimension: currency
+    stock_or_flow: flow
+    definition_note: Some decks count reactivated customers here, which inflates acquisition.
+    expected_for: [b2b_saas, b2c_subscription]
+  - metric_id: mrr_expansion
+    canonical_name: Expansion MRR
+    aliases: [expansion MRR, MRR expansion, upgrade MRR, upsell MRR, cross-sell MRR]
+    dimension: currency
+    stock_or_flow: flow
+    definition_note: >-
+      Bare "upsell", "cross-sell" and "expansion" are not aliases: an ARR waterfall uses the same
+      labels for values 12 times larger.
+    expected_for: [b2b_saas, b2c_subscription]
+  - metric_id: mrr_contraction
+    canonical_name: Contraction MRR
+    aliases: [contraction MRR, MRR contraction, downgrade MRR, downsell MRR]
+    dimension: currency
+    stock_or_flow: flow
+    definition_note: >-
+      Often netted into mrr_churned without disclosure. Netting keeps the MRR bridge closed but
+      hides the split.
+    expected_for: [b2b_saas, b2c_subscription]
+  - metric_id: mrr_churned
+    canonical_name: Churned MRR
+    aliases: [churned MRR, lost MRR, cancelled MRR]
+    dimension: currency
+    stock_or_flow: flow
+    definition_note: >-
+      A currency amount. "MRR churn" is not an alias: it can be this amount or the rate
+      churn_revenue_gross_monthly. "Cancellations" is not an alias: it can be an amount or a
+      customer count.
+    expected_for: [b2b_saas, b2c_subscription]
+  - metric_id: mrr_reactivation
+    canonical_name: Reactivated MRR
+    aliases: [reactivation MRR, reactivated MRR, win-back MRR, resurrected MRR]
+    dimension: currency
+    stock_or_flow: flow
+    definition_note: Sometimes counted as mrr_new, which inflates acquisition.
+    expected_for: [b2c_subscription]
+  - metric_id: net_new_arr
+    canonical_name: Net new ARR added in period
+    aliases: [net new ARR, NNARR, ARR added, net ARR added]
+    dimension: currency
+    stock_or_flow: flow
+    definition_note: >-
+      Change in arr over the period. Record whether acquired ARR is included. "Net adds" is not an
+      alias: it usually means a net customer count.
+    expected_for: [b2b_saas, b2c_subscription]
+  - metric_id: bookings_acv
+    canonical_name: Annual contract value booked
+    aliases: [new ACV, ACV bookings, ACV booked, annualised bookings]
+    dimension: currency
+    stock_or_flow: flow
+    definition_note: >-
+      Sum of the annual value of contracts signed in the period. Bare "ACV" is not an alias: it
+      often means acv_avg (average per contract).
+    expected_for: [b2b_saas]
+  - metric_id: bookings_tcv
+    canonical_name: Total contract value booked
+    aliases: [TCV, total contract value, TCV bookings]
+    dimension: currency
+    stock_or_flow: flow
+    definition_note: >-
+      Multi-year value. When TCV is next to ARR on the same page, record both and flag the pair.
+      "Total bookings" is not an alias: it can be ACV or TCV.
+    expected_for: [b2b_saas]
+  - metric_id: billings
+    canonical_name: Billings (invoiced in period)
+    aliases: [billings, invoiced revenue, invoicing, amounts invoiced]
+    dimension: currency
+    stock_or_flow: flow
+    definition_note: >-
+      Amounts invoiced in the period. Not cash collected and not revenue_recognised. "Gross
+      billings" is not an alias: marketplaces use it for gross transaction value.
+    expected_for: [b2b_saas]
+  - metric_id: deferred_revenue
+    canonical_name: Deferred revenue balance
+    aliases: [deferred revenue, unearned revenue, deferred income, contract liabilities, customer prepayments, förutbetalda intäkter]
+    dimension: currency
+    stock_or_flow: stock
+    definition_note: >-
+      A balance-sheet liability. Bare "prepayments" is not an alias: on a balance sheet it usually
+      means prepaid expenses, an asset.
+    expected_for: [b2b_saas, b2c_subscription]
+  - metric_id: backlog_rpo
+    canonical_name: Remaining performance obligations
+    aliases: [RPO, remaining performance obligations, backlog, contracted backlog, contracted not yet recognised]
+    dimension: currency
+    stock_or_flow: stock
+    definition_note: >-
+      All contracted revenue not yet recognised. Current RPO (next 12 months only) is a different
+      value and is not an alias.
+    expected_for: [b2b_saas]
+  - metric_id: revenue_subscription
+    canonical_name: Subscription revenue
+    aliases: [subscription revenue, SaaS revenue, subscription fees, subscription/SaaS revenues]
+    dimension: currency
+    stock_or_flow: flow
+    definition_note: >-
+      Recognised subscription revenue over the period. "Recurring revenue" is not an alias: it can
+      mean this flow or the stock arr.
+    expected_for: [b2b_saas, b2c_subscription]
+  - metric_id: revenue_usage
+    canonical_name: Usage and consumption revenue
+    aliases: [usage revenue, usage-based revenue, consumption revenue, metered revenue, overage revenue]
+    dimension: currency
+    stock_or_flow: flow
+    definition_note: >-
+      Recurring in practice but not contracted. "Transaction fees" is not an alias: in a
+      marketplace it is the take-rate revenue itself.
+    expected_for: [b2b_saas, marketplace]
+  - metric_id: revenue_services
+    canonical_name: Professional services and implementation revenue
+    aliases: [professional services revenue, PS revenue, services revenue, implementation revenue, onboarding fees, setup fees, consulting revenue]
+    dimension: currency
+    stock_or_flow: flow
+    definition_note: >-
+      Non-recurring. The classic ARR contaminant: if it is above zero and the ARR bridge does not
+      exclude it, flag.
+    expected_for: [b2b_saas]
+  - metric_id: revenue_hardware
+    canonical_name: Hardware and one-off product revenue
+    aliases: [hardware revenue, device revenue, equipment revenue, one-off product revenue]
+    dimension: currency
+    stock_or_flow: flow
+    expected_for: [b2b_saas, b2c_subscription]
+  - metric_id: recurring_revenue_share
+    canonical_name: Recurring share of total revenue
+    aliases: ["% recurring", recurring revenue share, recurring share of revenue]
+    dimension: percent
+    stock_or_flow: flow
+    definition_note: >-
+      Record whether usage revenue counts as recurring. "Revenue quality" is not an alias.
+    expected_for: [b2b_saas, b2c_subscription, marketplace, dtc_commerce]
+  - metric_id: revenue_concentration_top1
+    canonical_name: Largest customer share of revenue
+    aliases: ["top customer %", top customer share, largest customer share, top-1 concentration]
+    dimension: percent
+    stock_or_flow: flow
+    expected_for: [b2b_saas, marketplace]
+  - metric_id: revenue_concentration_top5
+    canonical_name: Top-5 customer share of revenue
+    aliases: [top 5 concentration, top-5 customer share, top five customers share]
+    dimension: percent
+    stock_or_flow: flow
+    definition_note: >-
+      Bare "customer concentration" is not an alias: it can mean top 1, top 5 or top 10.
+    expected_for: [b2b_saas, marketplace]
+  - metric_id: revenue_concentration_top10
+    canonical_name: Top-10 customer share of revenue
+    aliases: [top 10 concentration, top-10 customer share]
+    dimension: percent
+    stock_or_flow: flow
+    expected_for: [b2b_saas, marketplace]
+  - metric_id: revenue_by_geography
+    canonical_name: Revenue split by country or region
+    aliases: [revenue by geography, revenue by country, revenue by region, geographic split, geo split]
+    dimension: currency
+    stock_or_flow: flow
+    expected_for: [b2b_saas, b2c_subscription, marketplace, dtc_commerce]
+  - metric_id: revenue_by_segment
+    canonical_name: Revenue split by segment or tier
+    aliases: [revenue by segment, revenue by tier, revenue by plan, segment split, SMB/mid-market/enterprise split]
+    dimension: currency
+    stock_or_flow: flow
+    expected_for: [b2b_saas]
+  - metric_id: revenue_by_currency
+    canonical_name: Revenue split by billing currency
+    aliases: [revenue by currency, currency mix, billing currency mix]
+    dimension: currency
+    stock_or_flow: flow
+    expected_for: [b2b_saas, b2c_subscription, marketplace, dtc_commerce]
+  - metric_id: revenue_seasonality_index
+    canonical_name: Period revenue divided by trailing average
+    aliases: [seasonality index]
+    dimension: ratio
+    stock_or_flow: flow
+    definition_note: >-
+      Usually derived, not stated. No expected_for: the absence of a derived metric is not a
+      finding.
+
+  # --- Section 3: retention and churn ---
+  - metric_id: churn_logo_monthly
+    canonical_name: Monthly logo churn
+    aliases: [monthly logo churn, monthly customer churn, monthly subscriber churn, monthly cancellation rate]
+    dimension: percent
+    stock_or_flow: flow
+    definition_note: >-
+      Share of customers lost in the month. Record the denominator (start, average or end base).
+      Bare "churn", "customer churn" and "monthly churn" are not aliases: the period or the basis
+      (logos or revenue) is not known.
+    expected_for: [b2b_saas, b2c_subscription]
+  - metric_id: churn_logo_annual
+    canonical_name: Annual logo churn
+    aliases: [annual logo churn, annual customer churn, annualised logo churn, annualised customer churn, yearly customer churn]
+    dimension: percent
+    stock_or_flow: flow
+    definition_note: >-
+      Equals 1 - (1 - monthly)^12, not monthly x 12. Bare "annual churn" and "attrition" are not
+      aliases: the basis (logos, revenue or employees) is not known.
+    expected_for: [b2b_saas, b2c_subscription]
+  - metric_id: churn_revenue_gross_monthly
+    canonical_name: Monthly gross revenue churn
+    aliases: [monthly revenue churn, monthly gross revenue churn, monthly MRR churn rate]
+    dimension: percent
+    stock_or_flow: flow
+    definition_note: >-
+      A rate, not an amount. Bare "MRR churn" and "revenue churn" are not aliases: the first can be
+      an amount (mrr_churned), the second can be an annual rate.
+    expected_for: [b2b_saas, b2c_subscription]
+  - metric_id: grr
+    canonical_name: Gross revenue retention
+    aliases: [GRR, gross revenue retention, gross retention, gross dollar retention, GDR]
+    dimension: percent
+    stock_or_flow: flow
+    definition_note: >-
+      Cannot exceed 100%. Bare "retention" and "revenue retention" are not aliases: decks often
+      quote NRR under these labels. nrr without grr is a conspicuous absence.
+    expected_for: [b2b_saas]
+  - metric_id: nrr
+    canonical_name: Net revenue retention
+    aliases: [NRR, NDR, net revenue retention, net dollar retention, net retention, dollar-based net retention, DBNRR]
+    dimension: percent
+    stock_or_flow: flow
+    definition_note: >-
+      Over 12 months, on the customers present at the start of the window. "Expansion rate" is not
+      an alias: it can mean NRR or NRR minus GRR. "12-month net retention" is not an alias: it can
+      mean nrr or nrr_cohort_12m.
+    expected_for: [b2b_saas]
+  - metric_id: nrr_cohort_12m
+    canonical_name: NRR of a named cohort at month 12
+    aliases: [cohort NRR, M12 cohort NRR, month-12 cohort NRR]
+    dimension: percent
+    stock_or_flow: flow
+    definition_note: >-
+      One named acquisition cohort, at month 12. Not nrr, which covers all customers present at
+      the start of the window.
+    expected_for: [b2b_saas]
+  - metric_id: renewal_rate
+    canonical_name: Contracts renewed divided by contracts up for renewal
+    aliases: [renewal rate, contract renewal rate, "% renewed"]
+    dimension: percent
+    stock_or_flow: flow
+    definition_note: >-
+      Record whether it is logo-weighted or value-weighted. It counts only contracts up for
+      renewal, so it is not 1 - churn_logo_annual.
+    expected_for: [b2b_saas]
+  - metric_id: churn_voluntary
+    canonical_name: Voluntary (active cancellation) churn
+    aliases: [voluntary churn, user-initiated churn, active churn]
+    dimension: percent
+    stock_or_flow: flow
+    expected_for: [b2c_subscription]
+  - metric_id: churn_involuntary
+    canonical_name: Involuntary (payment-failure) churn
+    aliases: [involuntary churn, passive churn, delinquent churn, payment-failure churn]
+    dimension: percent
+    stock_or_flow: flow
+    definition_note: >-
+      "Failed payments" is not an alias: it is a count or an amount of failed charges, not churn.
+    expected_for: [b2c_subscription, dtc_commerce]
+  - metric_id: dunning_recovery_rate
+    canonical_name: Failed payments recovered
+    aliases: [dunning recovery rate, payment recovery rate, failed payment recovery rate, retry success rate]
+    dimension: percent
+    stock_or_flow: flow
+    definition_note: >-
+      Bare "recovery rate" is not an alias: lenders use it for debt recovery.
+    expected_for: [b2c_subscription, dtc_commerce]
+  - metric_id: reactivation_rate
+    canonical_name: Churned customers returning
+    aliases: [reactivation rate, win-back rate, resurrection rate]
+    dimension: percent
+    stock_or_flow: flow
+    expected_for: [b2c_subscription]
+  - metric_id: cohort_retention_curve
+    canonical_name: Logo retention by months since start, per cohort
+    aliases: [cohort retention, customer retention curve, logo retention curve, survival curve]
+    dimension: percent
+    stock_or_flow: flow
+    definition_note: >-
+      Logo-based. Bare "cohort chart" and "retention curve" are not aliases: they can be logo-based
+      or revenue-based. Check that every cohort is shown.
+    expected_for: [b2b_saas, b2c_subscription, marketplace, dtc_commerce]
+  - metric_id: cohort_revenue_curve
+    canonical_name: Revenue per cohort over time
+    aliases: [cohort revenue, revenue by cohort, dollar cohorts]
+    dimension: currency
+    stock_or_flow: flow
+    expected_for: [b2c_subscription, dtc_commerce, marketplace]
+  - metric_id: customer_lifetime_months
+    canonical_name: Expected customer lifetime
+    aliases: [customer lifetime, average customer lifetime, expected customer lifetime]
+    dimension: months
+    stock_or_flow: stock
+    definition_note: >-
+      Expected (forward) lifetime, often 1 / monthly churn. Not customer_tenure_median, which is
+      the observed age of the active base. "Tenure" is not an alias.
+    expected_for: [b2b_saas, b2c_subscription]
+  - metric_id: contract_length_avg
+    canonical_name: Average contract term
+    aliases: [average contract length, average contract term, contract term, commitment length]
+    dimension: months
+    stock_or_flow: stock
+    expected_for: [b2b_saas]
+  - metric_id: contract_annual_share
+    canonical_name: Annual (versus monthly) contract share
+    aliases: [annual plan mix, annual contract share, "% on annual plans"]
+    dimension: percent
+    stock_or_flow: stock
+    expected_for: [b2b_saas, b2c_subscription]
+  - metric_id: payment_terms_upfront_share
+    canonical_name: Share of contract value paid upfront
+    aliases: [upfront billing share, prepaid share, "% billed upfront"]
+    dimension: percent
+    stock_or_flow: stock
+    expected_for: [b2b_saas]
+  - metric_id: customer_tenure_median
+    canonical_name: Median tenure of the active customer base
+    aliases: [median customer tenure, median customer age]
+    dimension: months
+    stock_or_flow: stock
+    definition_note: >-
+      A median, not a mean. "Average customer age" is not an alias: a mean differs from a median.
+    expected_for: [b2b_saas, b2c_subscription]
+
+  # --- Section 4: customers and the denominator problem ---
+  - metric_id: customers_paying
+    canonical_name: Paying customers (billing relationships)
+    aliases: [paying customers, customers, clients, paying clients, billing accounts, number of customers]
+    dimension: count
+    stock_or_flow: stock
+    definition_note: >-
+      Billing relationships at a point in time. The denominator-drift metric: when its stated label
+      changes between periods, per-customer ratios across that change are not valid. "Accounts"
+      and "paying users" are not aliases: they can mean customers_paying, logos, users_registered
+      or subscribers_paying.
+    expected_for: [b2b_saas, b2c_subscription, marketplace, dtc_commerce]
+  - metric_id: customers_active
+    canonical_name: Active customers (usage-defined)
+    aliases: [active customers, active clients]
+    dimension: count
+    stock_or_flow: stock
+    definition_note: >-
+      Record the activity window (for example 30 days). "Active accounts" and "active users" are
+      not aliases: they can count people, not customers.
+    expected_for: [b2b_saas, b2c_subscription, marketplace, dtc_commerce]
+  - metric_id: logos
+    canonical_name: Distinct customer organisations
+    aliases: [logos, customer organisations, distinct organisations, companies served]
+    dimension: count
+    stock_or_flow: stock
+    definition_note: >-
+      One logo can hold many billing accounts. "Brands" is not an alias: in DTC and marketplaces it
+      means product brands or sellers.
+    expected_for: [b2b_saas]
+  - metric_id: seats_licensed
+    canonical_name: Seats contracted
+    aliases: [licensed seats, seats sold, paid seats, contracted seats, licences, licenses]
+    dimension: count
+    stock_or_flow: stock
+    expected_for: [b2b_saas]
+  - metric_id: seats_active
+    canonical_name: Seats in use
+    aliases: [active seats, seats in use]
+    dimension: count
+    stock_or_flow: stock
+    definition_note: >-
+      "Active users" and "activated users" are not aliases: they count people or an activation
+      event, not seats.
+    expected_for: [b2b_saas]
+  - metric_id: seat_utilisation
+    canonical_name: Active seats divided by licensed seats
+    aliases: [seat utilisation, seat utilization, licence utilisation, license utilization]
+    dimension: percent
+    stock_or_flow: stock
+    definition_note: >-
+      A leading churn indicator. Bare "utilisation" and "adoption" are not aliases.
+    expected_for: [b2b_saas]
+  - metric_id: subscribers_paying
+    canonical_name: Paying subscribers
+    aliases: [paying subscribers, paid subscribers, paying members, paid members]
+    dimension: count
+    stock_or_flow: stock
+    definition_note: >-
+      Bare "subscribers", "members" and "paid users" are not aliases: they can include free or
+      trial users, or mean customers_paying.
+    expected_for: [b2c_subscription]
+  - metric_id: users_registered
+    canonical_name: Registered users
+    aliases: [registered users, registered accounts, total registered users, cumulative sign-ups]
+    dimension: count
+    stock_or_flow: stock
+    definition_note: >-
+      Often shown where customers_paying is expected. "Sign-ups" is not an alias: it is usually a
+      flow in the period. Bare "users" is not an alias.
+    expected_for: [b2c_subscription, marketplace]
+  - metric_id: customers_new
+    canonical_name: New customers acquired in period
+    aliases: [new customers, new logos, new clients, gross adds, customer acquisitions]
+    dimension: count
+    stock_or_flow: flow
+    definition_note: >-
+      Bare "adds" and "acquisitions" are not aliases: they can mean net adds or company
+      acquisitions.
+    expected_for: [b2b_saas, b2c_subscription, marketplace, dtc_commerce]
+  - metric_id: customers_churned
+    canonical_name: Customers lost in period
+    aliases: [churned customers, lost customers, churned logos, lost logos, customer cancellations]
+    dimension: count
+    stock_or_flow: flow
+    expected_for: [b2b_saas, b2c_subscription, marketplace, dtc_commerce]
+  - metric_id: customers_enterprise_share
+    canonical_name: Share of customers above a size threshold
+    aliases: [enterprise mix, enterprise share, upmarket share]
+    dimension: percent
+    stock_or_flow: stock
+    definition_note: Record the size threshold.
+    expected_for: [b2b_saas]
+  - metric_id: arpu
+    canonical_name: Average revenue per user or customer
+    aliases: [ARPU, ARPA, ARPC, average revenue per user, average revenue per account, average revenue per customer]
+    dimension: currency
+    stock_or_flow: flow
+    definition_note: >-
+      Record the period (month or year) and the denominator (user, seat or account). In B2B, ARPU
+      per seat and ARPA per account differ by the number of seats per account.
+    expected_for: [b2b_saas, b2c_subscription, marketplace, dtc_commerce]
+  - metric_id: acv_avg
+    canonical_name: Average annual contract value
+    aliases: [average ACV, average annual contract value]
+    dimension: currency
+    stock_or_flow: flow
+    definition_note: >-
+      Bare "ACV" is not an alias: it can mean bookings_acv. "Average deal size" and "average
+      contract value" are not aliases: they can mean asp or a multi-year value.
+    expected_for: [b2b_saas]
+  - metric_id: asp
+    canonical_name: Average selling price
+    aliases: [ASP, average selling price]
+    dimension: currency
+    stock_or_flow: flow
+    expected_for: [b2b_saas, dtc_commerce]
+  - metric_id: aov
+    canonical_name: Average order value
+    aliases: [AOV, average order value, average basket value]
+    dimension: currency
+    stock_or_flow: flow
+    definition_note: >-
+      "Basket size" is not an alias: it can be a count of items. "Average order size" is not an
+      alias: it can mean aov or asp.
+    expected_for: [marketplace, dtc_commerce]
+
+  # --- Section 7: cash and burn (burn_gross and burn_net only) ---
+  - metric_id: burn_gross
+    canonical_name: Gross monthly burn (all cash out)
+    aliases: [gross burn, monthly spend]
+    dimension: currency
+    stock_or_flow: flow
+    definition_note: >-
+      A positive amount of cash used. A deck can print it negative; the extractor stores the
+      amount.
+    expected_for: [b2b_saas, b2c_subscription, marketplace, dtc_commerce]
+  - metric_id: burn_net
+    canonical_name: Net monthly burn
+    aliases: [net burn, cash burn]
+    dimension: currency
+    stock_or_flow: flow
+    definition_note: >-
+      A positive amount of cash used, net of cash in. A deck can print it negative; the extractor
+      stores the amount. Bare "burn" is not an alias: it can mean burn_gross or burn_net.
+    expected_for: [b2b_saas, b2c_subscription, marketplace, dtc_commerce]
+
+  # --- Section 8: listed-company IFRS income statement (S3-19) ---
+  # No expected_for on any metric here: a reporting regime is not a business model.
+  - metric_id: cost_of_sales
+    canonical_name: Cost of sales
+    aliases: [cost of sales, cost of goods sold, COGS, cost of revenue, Umsatzkosten]
+    dimension: currency
+    stock_or_flow: flow
+  - metric_id: gross_profit
+    canonical_name: Gross profit
+    aliases: [gross profit, Rohertrag]
+    dimension: currency
+    stock_or_flow: flow
+  - metric_id: d_and_a
+    canonical_name: Depreciation and amortisation
+    aliases: [depreciation and amortisation, depreciation and amortization, D&A, Abschreibungen, amortisation and depreciation, D&A (incl. PPA), D&A (total)]
+    dimension: currency
+    stock_or_flow: flow
+    definition_note: >-
+      "D&A (ordinary only)" is not an alias: it excludes PPA amortisation.
+  - metric_id: ebitda
+    canonical_name: EBITDA
+    aliases: [EBITDA]
+    dimension: currency
+    stock_or_flow: flow
+    definition_note: >-
+      "Adjusted EBITDA" is not an alias: the adjustments are the company's own, so two companies'
+      adjusted EBITDA are not one metric.
+  - metric_id: ebitda_adjusted
+    canonical_name: Adjusted EBITDA (company definition)
+    aliases: [adjusted EBITDA, EBITDA adjusted, underlying EBITDA, adj. EBITDA]
+    dimension: currency
+    stock_or_flow: flow
+    definition_note: >-
+      Bare "EBITDA" is not an alias: this metric uses the company's own adjustments.
+  - metric_id: ebit
+    canonical_name: EBIT (operating profit)
+    aliases: [EBIT, operating profit, operating result, Betriebsergebnis, operating profit (EBIT)]
+    dimension: currency
+    stock_or_flow: flow
+    definition_note: >-
+      "Operating income" is not an alias: under IFRS some issuers use it for revenues plus
+      other income, before any cost.
+  - metric_id: income_tax_expense
+    canonical_name: Income tax expense
+    aliases: [income tax expense, income tax expenses, income taxes, tax expense, taxes on income]
+    dimension: currency
+    stock_or_flow: flow
+  - metric_id: net_income
+    canonical_name: Net income
+    aliases: [net income, net profit, net result, profit for the period, profit after tax, earnings after tax, earnings after taxes]
+    dimension: currency
+    stock_or_flow: flow
+    definition_note: >-
+      Before non-controlling interests, so "group shares" and "attributable to" labels are not aliases.
+  - metric_id: ebt
+    canonical_name: Profit before tax
+    aliases: [EBT, profit before tax, profit before tax (EBT), earnings before tax, earnings before taxes]
+    dimension: currency
+    stock_or_flow: flow
+    definition_note: >-
+      "Adjusted EBT" and "EBT before PPA" are not aliases: the adjustments are the company's own.
+  - metric_id: gross_margin
+    canonical_name: Gross margin
+    aliases: [gross profit margin, gross margin %]
+    dimension: percent
+    stock_or_flow: flow
+    definition_note: >-
+      Bare "gross margin" is not an alias: see margin_unspecified.
+  - metric_id: ebitda_margin
+    canonical_name: EBITDA margin
+    aliases: [EBITDA margin]
+    dimension: percent
+    stock_or_flow: flow
+  - metric_id: ebitda_adjusted_margin
+    canonical_name: Adjusted EBITDA margin
+    aliases: [adjusted EBITDA margin, adj. EBITDA margin]
+    dimension: percent
+    stock_or_flow: flow
+  - metric_id: ebit_margin
+    canonical_name: EBIT margin
+    aliases: [EBIT margin, operating profit margin]
+    dimension: percent
+    stock_or_flow: flow
+    definition_note: >-
+      Bare "operating margin" is not an alias: see margin_unspecified.
+  - metric_id: net_margin
+    canonical_name: Net margin
+    aliases: [net margin, net profit margin, net income margin, earnings after tax margin, earnings after taxes margin]
+    dimension: percent
+    stock_or_flow: flow
+    definition_note: >-
+      Bare "profit margin" is not an alias: see margin_unspecified.
+
+  # --- Umbrella ids: the metric_id of an ambiguous observation ---
+  # dimension and stock_or_flow are the most common reading. No calculation uses them.
+  - metric_id: revenue_unspecified
+    canonical_name: Revenue, definition not stated
+    aliases: [revenue, revenues, total revenues, sales, turnover, recurring revenue, monthly revenue, exit ARR, gross billings, transaction fees]
+    dimension: currency
+    stock_or_flow: flow
+    definition_note: >-
+      Umbrella for an ambiguous label; never a resolved value. Usual candidates: revenue_recognised,
+      arr, arr_run_rate, billings, revenue_subscription, revenue_gross, revenue_usage, mrr.
+  - metric_id: bridge_movement_unspecified
+    canonical_name: Recurring revenue movement, scale not stated
+    aliases: [upsell, cross-sell, downsell, expansion, contraction]
+    dimension: currency
+    stock_or_flow: flow
+    definition_note: >-
+      Umbrella for an ambiguous label; never a resolved value. Usual candidates: mrr_expansion,
+      mrr_contraction, or the ARR-scale value (12 times larger, not in v0).
+  - metric_id: deal_value_unspecified
+    canonical_name: Contract or deal value, definition not stated
+    aliases: [ACV, bookings, total bookings, contract value, average contract value, deal size, average deal size, average order size]
+    dimension: currency
+    stock_or_flow: flow
+    definition_note: >-
+      Umbrella for an ambiguous label; never a resolved value. Usual candidates: bookings_acv,
+      bookings_tcv, acv_avg, asp, aov.
+  - metric_id: churn_unspecified
+    canonical_name: Churn, period or basis not stated
+    aliases: [churn, churn rate, customer churn, customer churn rate, monthly churn, annual churn, attrition, revenue churn, MRR churn, cancellations]
+    dimension: percent
+    stock_or_flow: flow
+    definition_note: >-
+      Umbrella for an ambiguous label; never a resolved value. Usual candidates: churn_logo_monthly,
+      churn_logo_annual, churn_revenue_gross_monthly, mrr_churned, customers_churned.
+  - metric_id: retention_unspecified
+    canonical_name: Retention, definition not stated
+    aliases: [retention, retention rate, revenue retention, expansion rate, 12-month net retention, retention curve, cohort chart]
+    dimension: percent
+    stock_or_flow: flow
+    definition_note: >-
+      Umbrella for an ambiguous label; never a resolved value. Usual candidates: nrr, grr,
+      nrr_cohort_12m, cohort_retention_curve, cohort_revenue_curve.
+  - metric_id: customers_unspecified
+    canonical_name: Customers or users, counting unit not stated
+    aliases: [accounts, users, paying users, paid users, subscribers, members, active users, active accounts, activated users, sign-ups, adds, net adds]
+    dimension: count
+    stock_or_flow: stock
+    definition_note: >-
+      Umbrella for an ambiguous label; never a resolved value. Usual candidates: customers_paying,
+      customers_active, logos, subscribers_paying, users_registered, seats_active, customers_new,
+      net_new_arr.
+  - metric_id: concentration_unspecified
+    canonical_name: Customer concentration, top-N not stated
+    aliases: [customer concentration, concentration]
+    dimension: percent
+    stock_or_flow: flow
+    definition_note: >-
+      Umbrella for an ambiguous label; never a resolved value. Usual candidates:
+      revenue_concentration_top1, revenue_concentration_top5, revenue_concentration_top10.
+  - metric_id: customer_tenure_unspecified
+    canonical_name: Customer tenure or lifetime, statistic not stated
+    aliases: [tenure, customer tenure, average customer age]
+    dimension: months
+    stock_or_flow: stock
+    definition_note: >-
+      Umbrella for an ambiguous label; never a resolved value. Usual candidates:
+      customer_lifetime_months, customer_tenure_median.
+  - metric_id: margin_unspecified
+    canonical_name: Margin, amount or rate not stated
+    aliases: [gross margin, operating margin, profit margin]
+    dimension: percent
+    stock_or_flow: flow
+    definition_note: >-
+      Umbrella for an ambiguous label; never a resolved value. A deck prints the amount under one
+      metric and the rate under the next, so the label alone does not state the dimension. Usual
+      candidates: gross_profit, gross_margin, ebit_margin, ebitda_margin, net_margin.

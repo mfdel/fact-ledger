@@ -1,0 +1,20 @@
+# Synthetic corpus case. No real company data.
+#
+# Decoy only (story S5-04, criterion 1). A press article repeats the deck ARR and names the
+# company as its source, so the analyst sets cited_origin_id: nimbus-management. The press row
+# is inside tolerance of p4 (gap 36,000, tolerance 81,000), p1 (gap 100,000, tolerance 550,000)
+# and MRR x 12 (gap 36,000, tolerance 81,000). With the cited origin the three comparisons are
+# Consistent, so the case must raise no flag. Without it they are Corroborated with one pair of
+# origins: one false corroboration at nimbus#arr#2024-12-31#nimbus-management+techdaily.
+# arr_ge_revenue_recognised holds.
+#
+# Base: clean-nimbus (see manifest.yaml). This file holds only the rows that the case adds.
+defaults: {entity_id: nimbus, origin_id: techdaily, document_id: techdaily-2025-02,
+           source_type: press, reliability: 3, bias_direction: up, published_date: 2025-02-10,
+           unit: EUR, currency: EUR}
+observations:
+  # The echo: one origin (the company), two documents.
+  - {observation_id: press-02, metric_id: arr, value: "8100000", stated_precision: "50000",
+     period_start: 2024-12-31, period_end: 2024-12-31, period_type: point_in_time,
+     as_of_date: 2024-12-31, locator: "para 2", stated_label: "annual recurring revenue",
+     cited_origin_id: nimbus-management}  # printed "about €8.1 million"

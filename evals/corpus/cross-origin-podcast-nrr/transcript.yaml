@@ -1,0 +1,18 @@
+# Synthetic corpus case. No real company data.
+#
+# Planted: cross_origin_contradiction. The founder states net revenue
+# retention of 131% in a podcast interview. The deck p11 says 118%. Tolerance 1.0, gap 13.
+#
+# Base: clean-nimbus (see manifest.yaml). This file holds only the rows that the case adds
+# or replaces. A row replaces the base row with the same observation_id.
+defaults: {entity_id: nimbus, origin_id: nimbus-management, document_id: nimbus-deck-2025,
+           source_type: deck, reliability: 4, bias_direction: up, published_date: 2025-03-01,
+           unit: EUR, currency: EUR}
+observations:
+  # PLANTED: an interview with a second origin.
+  - {observation_id: podcast-01, metric_id: nrr, value: "131", stated_precision: "0.5",
+     unit: percent, currency: null, period_start: 2024-01-01, period_end: 2024-12-31,
+     period_type: fy, as_of_date: 2024-12-31, locator: "12:40",
+     stated_label: "net revenue retention", origin_id: founder-podcast,
+     document_id: founder-podcast-2025-01, source_type: interview, reliability: 2,
+     published_date: 2025-01-20, bias_direction: up}  # printed "131%"

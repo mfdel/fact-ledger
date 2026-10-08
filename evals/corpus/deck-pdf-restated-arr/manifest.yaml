@@ -1,0 +1,19 @@
+# Synthetic corpus case. No real company data.
+#
+# S3-03: the whole pipeline on one deck. The harness replays the recording onto the PDF with
+# extract_deck, then runs the validator. There is no transcript: the rows come from the
+# extractor. Paths are relative to the repository root. Expected result: S3-01, part 2.
+deck:
+  pdf: tests/fixtures/decks/nimbus-pdf-2025.pdf
+  responses: tests/fixtures/decks/nimbus-pdf-2025.responses.json
+  source: {entity_id: nimbus, origin_id: nimbus-management, document_id: nimbus-pdf-2025,
+           reliability: 4}
+note: >-
+  The recording is hand-written (model "hand-written"). So this case proves the code after the
+  LLM (parse, map, locate, validate), not the prompt.
+defects:
+  - defect_type: arithmetic
+    location: "nimbus-pdf-2025#p4"
+    value: "7450000"
+    expected_class: inconsistent
+    note: 'p4 table (€k) restates ARR at 31 Dec 2024 as 7,450; p1, p2 and MRR x 12 agree'

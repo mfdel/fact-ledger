@@ -1,0 +1,6 @@
+base: clean-nimbus
+defects:
+  - defect_type: cross_origin_contradiction
+    location: "techdaily-2025-02#para 3"
+    expected_class: contested
+    note: 'the press value differs from p4, p1 and MRR x 12'

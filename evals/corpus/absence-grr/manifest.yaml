@@ -1,0 +1,8 @@
+base: clean-nimbus
+sector: b2b_saas
+remove: [nimbus-20]
+defects:
+  - defect_type: removed_expected_metric
+    location: "nimbus#grr"
+    expected_class: absence
+    note: 'p11 shows nrr and no grr, and the p12 bridge covers one quarter, so no fill gives grr'

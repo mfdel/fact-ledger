@@ -1,0 +1,6 @@
+base: clean-nimbus
+defects:
+  - defect_type: definitional_switch
+    location: "nimbus-deck-2025#p2 executive summary"
+    expected_class: label_conflict
+    note: 'one label, two metrics in one document'

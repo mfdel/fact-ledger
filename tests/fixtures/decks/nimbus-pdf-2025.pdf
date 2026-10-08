@@ -1,0 +1,79 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [4 0 R 6 0 R 8 0 R 10 0 R] /Count 4 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 960 540] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 253 >>
+stream
+BT /F1 40 Tf 60 420 Td (Nimbus) Tj ET
+BT /F1 24 Tf 60 370 Td (Management presentation) Tj ET
+BT /F1 18 Tf 60 330 Td (March 2025) Tj ET
+BT /F1 32 Tf 60 220 Td (~€8m ARR \(Dec 2024\)) Tj ET
+BT /F1 12 Tf 60 60 Td (Synthetic data, not a real company.) Tj ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 960 540] /Resources << /Font << /F1 3 0 R >> >> /Contents 7 0 R >>
+endobj
+7 0 obj
+<< /Length 175 >>
+stream
+BT /F1 32 Tf 60 460 Td (Key metrics) Tj ET
+BT /F1 22 Tf 60 360 Td (ARR: €8.4m \(as of 31 Dec 2024\)) Tj ET
+BT /F1 22 Tf 60 310 Td (MRR: €700k \(as of 31 December 2024\)) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 960 540] /Resources << /Font << /F1 3 0 R >> >> /Contents 9 0 R >>
+endobj
+9 0 obj
+<< /Length 171 >>
+stream
+BT /F1 32 Tf 60 460 Td (Track record) Tj ET
+BT /F1 22 Tf 60 360 Td (Revenue 2023: €4.7m) Tj ET
+BT /F1 22 Tf 60 310 Td (Pipeline coverage: 3.2x \(as of 31 Dec 2024\)) Tj ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 960 540] /Resources << /Font << /F1 3 0 R >> >> /Contents 11 0 R >>
+endobj
+11 0 obj
+<< /Length 282 >>
+stream
+BT /F1 32 Tf 60 460 Td (Appendix: KPI summary \(€k\)) Tj ET
+BT /F1 18 Tf 60 380 Td (KPI) Tj ET
+BT /F1 18 Tf 300 380 Td (31 Dec 2024) Tj ET
+BT /F1 18 Tf 60 340 Td (ARR) Tj ET
+BT /F1 18 Tf 300 340 Td (7,450) Tj ET
+BT /F1 18 Tf 60 300 Td (MRR) Tj ET
+BT /F1 18 Tf 300 300 Td (700) Tj ET
+endstream
+endobj
+xref
+0 12
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000134 00000 n 
+0000000231 00000 n 
+0000000357 00000 n 
+0000000661 00000 n 
+0000000787 00000 n 
+0000001013 00000 n 
+0000001139 00000 n 
+0000001361 00000 n 
+0000001489 00000 n 
+trailer
+<< /Size 12 /Root 1 0 R >>
+startxref
+1823
+%%EOF

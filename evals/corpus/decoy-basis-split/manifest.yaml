@@ -1,0 +1,5 @@
+defects:
+  - defect_type: basis_gap
+    location: "orbit-deck-2025#p7"
+    expected_class: definitional
+    note: 'p7 prints Adjusted EBITDA FY2024 as pro forma 36.0 and reported 33.0'

@@ -1,0 +1,92 @@
+## Fact table
+observation_id	metric_id	period_start	period_end	period_type	value	unit	origin_id	locator	definition_status	candidate_metric_ids
+kestrel-63	acv_avg	2024-01-01	2024-12-31	fy	45000	EUR	kestrel-management	p13	resolved
+kestrel-65	arpu	2024-12-01	2024-12-31	month	3750	EUR	kestrel-management	p6	resolved
+kestrel-01	arr	2023-12-31	2023-12-31	point_in_time	8200000	EUR	kestrel-management	p4 chart	resolved
+fintechwire-01	arr	2024-12-31	2024-12-31	point_in_time	15000000	EUR	fintechwire	para 3	resolved
+kestrel-02	arr	2024-12-31	2024-12-31	point_in_time	12060000	EUR	kestrel-management	p4 chart	resolved
+kestrel-15	arr	2024-12-31	2024-12-31	point_in_time	12000000	EUR	kestrel-management	p1	resolved
+kestrel-18	arr	2025-12-31	2025-12-31	point_in_time	22500000	EUR	kestrel-management	p15 plan	resolved
+kestrel-31	arr_contracted	2024-12-31	2024-12-31	point_in_time	12900000	EUR	kestrel-management	p3	resolved
+kestrel-30	arr_run_rate	2024-12-01	2024-12-31	month	12240000	EUR	kestrel-management	p9	resolved
+kestrel-64	asp	2024-01-01	2024-12-31	fy	4200	EUR	kestrel-management	p13	resolved
+kestrel-37	backlog_rpo	2024-12-31	2024-12-31	point_in_time	13800000	EUR	kestrel-management	p3	resolved
+kestrel-35	billings	2024-01-01	2024-12-31	fy	11300000	EUR	kestrel-management	p3	resolved
+kestrel-33	bookings_acv	2024-01-01	2024-12-31	fy	5100000	EUR	kestrel-management	p3	resolved
+kestrel-34	bookings_tcv	2024-01-01	2024-12-31	fy	11200000	EUR	kestrel-management	p3	resolved
+kestrel-66	burn_gross	2024-12-01	2024-12-31	month	1150000	EUR	kestrel-management	p19	resolved
+kestrel-67	burn_net	2024-12-01	2024-12-31	month	240000	EUR	kestrel-management	p19	resolved
+kestrel-43	churn_logo_annual	2024-01-01	2024-12-31	fy	11.0	percent	kestrel-management	p10	resolved
+kestrel-44	churn_logo_monthly	2024-01-01	2024-12-31	fy	0.97	percent	kestrel-management	p10 footnote	resolved
+kestrel-45	churn_revenue_gross_monthly	2024-01-01	2024-12-31	fy	0.6	percent	kestrel-management	p10	resolved
+kestrel-48	cohort_retention_curve	2024-01-01	2024-12-31	fy	87	percent	kestrel-management	p17	resolved
+kestrel-52	contract_annual_share	2024-12-31	2024-12-31	point_in_time	84	percent	kestrel-management	p13	resolved
+kestrel-51	contract_length_avg	2024-12-31	2024-12-31	point_in_time	26	months	kestrel-management	p13	resolved
+kestrel-49	customer_lifetime_months	2024-12-31	2024-12-31	point_in_time	103	months	kestrel-management	p17	resolved
+kestrel-50	customer_tenure_median	2024-12-31	2024-12-31	point_in_time	28	months	kestrel-management	p17	resolved
+kestrel-54	customers_active	2024-12-31	2024-12-31	point_in_time	259	count	kestrel-management	p6	resolved
+kestrel-61	customers_churned	2024-01-01	2024-12-31	fy	23	count	kestrel-management	p6	resolved
+kestrel-62	customers_enterprise_share	2024-12-31	2024-12-31	point_in_time	41	percent	kestrel-management	p6	resolved
+kestrel-60	customers_new	2024-01-01	2024-12-31	fy	86	count	kestrel-management	p6	resolved
+kestrel-13	customers_paying	2023-12-31	2023-12-31	point_in_time	210	count	kestrel-management	p6	resolved
+kestrel-14	customers_paying	2024-12-31	2024-12-31	point_in_time	268	count	kestrel-management	p6	resolved
+kestrel-36	deferred_revenue	2024-12-31	2024-12-31	point_in_time	3400000	EUR	kestrel-management	p3	resolved
+kestrel-17	grr	2024-01-01	2024-12-31	fy	93	percent	kestrel-management	p11	resolved
+kestrel-55	logos	2024-12-31	2024-12-31	point_in_time	255	count	kestrel-management	p6	resolved
+kestrel-03	mrr	2023-12-31	2023-12-31	point_in_time	683000	EUR	kestrel-management	p7 chart	resolved
+kestrel-04	mrr	2024-09-30	2024-09-30	point_in_time	930000	EUR	kestrel-management	p7 chart	resolved
+kestrel-05	mrr	2024-12-31	2024-12-31	point_in_time	1005000	EUR	kestrel-management	p7 chart	resolved
+kestrel-10	mrr_churned	2024-10-01	2024-12-31	quarter	16000	EUR	kestrel-management	p12 waterfall	resolved
+kestrel-09	mrr_contraction	2024-10-01	2024-12-31	quarter	9000	EUR	kestrel-management	p12 waterfall	resolved
+kestrel-07	mrr_expansion	2024-10-01	2024-12-31	quarter	38000	EUR	kestrel-management	p12 waterfall	resolved
+kestrel-06	mrr_new	2024-10-01	2024-12-31	quarter	62000	EUR	kestrel-management	p12 waterfall	resolved
+kestrel-08	mrr_reactivation	2024-10-01	2024-12-31	quarter	0	EUR	kestrel-management	p12 waterfall	resolved
+kestrel-32	net_new_arr	2024-01-01	2024-12-31	fy	3860000	EUR	kestrel-management	p4	resolved
+kestrel-16	nrr	2024-01-01	2024-12-31	fy	89	percent	kestrel-management	p11	resolved
+kestrel-46	nrr_cohort_12m	2024-01-01	2024-12-31	fy	108	percent	kestrel-management	p17	resolved
+kestrel-53	payment_terms_upfront_share	2024-12-31	2024-12-31	point_in_time	71	percent	kestrel-management	p13	resolved
+kestrel-42	recurring_revenue_share	2024-01-01	2024-12-31	fy	95	percent	kestrel-management	p5	resolved
+kestrel-47	renewal_rate	2024-01-01	2024-12-31	fy	86	percent	kestrel-management	p11	resolved
+kestrel-92	revenue_by_currency	2024-01-01	2024-12-31	fy	8100000	EUR	kestrel-management	p5	resolved
+kestrel-90	revenue_by_geography	2024-01-01	2024-12-31	fy	5900000	EUR	kestrel-management	p5	resolved
+kestrel-91	revenue_by_segment	2024-01-01	2024-12-31	fy	6400000	EUR	kestrel-management	p5	resolved
+kestrel-41	revenue_hardware	2024-01-01	2024-12-31	fy	0	EUR	kestrel-management	p5	resolved
+kestrel-11	revenue_recognised	2023-01-01	2023-12-31	fy	6700000	EUR	kestrel-management	p8 P&L table	resolved
+kestrel-12	revenue_recognised	2024-01-01	2024-12-31	fy	10050000	EUR	kestrel-management	p8 P&L table	resolved
+kestrel-acc-01	revenue_recognised	2024-01-01	2024-12-31	fy	10052000	EUR	kestrel-auditor	note 3	resolved
+kestrel-40	revenue_services	2024-01-01	2024-12-31	fy	520000	EUR	kestrel-management	p5	resolved
+kestrel-38	revenue_subscription	2024-01-01	2024-12-31	fy	9280000	EUR	kestrel-management	p5	resolved
+kestrel-39	revenue_usage	2024-01-01	2024-12-31	fy	250000	EUR	kestrel-management	p5	resolved
+kestrel-59	seat_utilisation	2024-12-31	2024-12-31	point_in_time	91	percent	kestrel-management	p6	resolved
+kestrel-58	seats_active	2024-12-31	2024-12-31	point_in_time	5800	count	kestrel-management	p6	resolved
+kestrel-57	seats_licensed	2024-12-31	2024-12-31	point_in_time	6400	count	kestrel-management	p6	resolved
+kestrel-56	users_registered	2024-12-31	2024-12-31	point_in_time	6900	count	kestrel-management	p6	resolved
+
+## Inconsistencies
+kind	class	subject	period_start	period_end	period_type	left	right	question
+divergence	definitional	arr	2024-12-31	2024-12-31	point_in_time	EUR 15,000,000 on fintechwire-2025-02 para 3 ("annual recurring revenue")	EUR 12,060,000 on kestrel-deck-2025 p4 chart ("ARR (exit)"); EUR 12,000,000 on kestrel-deck-2025 p1 ("ARR"); EUR 12,060,000 computed as arr = mrr * 12 from mrr EUR 1,005,000 on kestrel-deck-2025 p7 chart	Annual recurring revenue at 2024-12-31 is EUR 15,000,000 on fintechwire-2025-02 para 3 ("annual recurring revenue") and EUR 12,060,000 on kestrel-deck-2025 p4 chart ("ARR (exit)"). These values also differ from fintechwire-2025-02 para 3: EUR 12,000,000 on kestrel-deck-2025 p1 ("ARR"); EUR 12,060,000 computed as arr = mrr * 12 from mrr EUR 1,005,000 on kestrel-deck-2025 p7 chart. Do "annual recurring revenue" and "ARR (exit)" use the same definition? If not, what does each one include?
+divergence	unresolvable	net_new_arr	2024-01-01	2024-12-31	fy	EUR 6,800,000 computed as net_new_arr = arr[t] - arr[t-1] from arr EUR 15,000,000 on fintechwire-2025-02 para 3 and arr EUR 8,200,000 on kestrel-deck-2025 p4 chart	EUR 3,860,000 on kestrel-deck-2025 p4 ("Net new ARR"); EUR 3,860,000 computed as net_new_arr = arr[t] - arr[t-1] from arr EUR 12,060,000 on kestrel-deck-2025 p4 chart and arr EUR 8,200,000 on kestrel-deck-2025 p4 chart; EUR 3,800,000 computed as net_new_arr = arr[t] - arr[t-1] from arr EUR 12,000,000 on kestrel-deck-2025 p1 and arr EUR 8,200,000 on kestrel-deck-2025 p4 chart	Net new ARR added in period for the fiscal year 2024-01-01 to 2024-12-31 is EUR 6,800,000 computed as net_new_arr = arr[t] - arr[t-1] from arr EUR 15,000,000 on fintechwire-2025-02 para 3 and arr EUR 8,200,000 on kestrel-deck-2025 p4 chart and EUR 3,860,000 on kestrel-deck-2025 p4 ("Net new ARR"). These values also differ from fintechwire-2025-02 para 3: EUR 3,860,000 computed as net_new_arr = arr[t] - arr[t-1] from arr EUR 12,060,000 on kestrel-deck-2025 p4 chart and arr EUR 8,200,000 on kestrel-deck-2025 p4 chart; EUR 3,800,000 computed as net_new_arr = arr[t] - arr[t-1] from arr EUR 12,000,000 on kestrel-deck-2025 p1 and arr EUR 8,200,000 on kestrel-deck-2025 p4 chart. The validator cannot judge this difference: the computed value uses inputs from more than one source. Can you confirm the correct value?
+invariant		nrr_ge_grr	2024-01-01	2024-12-31	fy	89% on p11 ("Net revenue retention")	93% on p11 ("Gross revenue retention")	Net revenue retention for the fiscal year 2024-01-01 to 2024-12-31 is 89% on p11 ("Net revenue retention"), below Gross revenue retention 93% on p11 ("Gross revenue retention"). The rule nrr_ge_grr (nrr >= grr) does not allow this. Which value is wrong, or do the two use a different scope or definition?
+
+## Corroboration
+metric_id	period_start	period_end	period_type	qualifier	count	documents
+revenue_recognised	2024-01-01	2024-12-31	fy		2 documents, 2 origins	kestrel-accounts-fy2024 (kestrel-auditor); kestrel-deck-2025 (kestrel-management)
+
+## Conspicuous absences
+metric_id	name
+revenue_concentration_top1	Largest customer share of revenue
+revenue_concentration_top10	Top-10 customer share of revenue
+revenue_concentration_top5	Top-5 customer share of revenue
+
+## Patterns
+kind	class	subject	period_start	period_end	period_type	left	right	question
+projection		arr	2025-12-31	2025-12-31	point_in_time	EUR 22,500,000 on p15 plan ("ARR")	EUR 8,200,000 on p4 chart ("ARR"); EUR 12,060,000 on p4 chart ("ARR (exit)")	Annual recurring revenue at 2025-12-31 is planned at EUR 22,500,000 on p15 plan ("ARR"), growth of 86.6% a year from EUR 12,060,000 on p4 chart ("ARR (exit)"). Before that, from EUR 8,200,000 on p4 chart ("ARR"), Annual recurring revenue grew 47.1% a year. What causes the planned growth to be higher than the realized growth?
+
+## Management questions
+1. Annual recurring revenue at 2024-12-31 is EUR 15,000,000 on fintechwire-2025-02 para 3 ("annual recurring revenue") and EUR 12,060,000 on kestrel-deck-2025 p4 chart ("ARR (exit)"). These values also differ from fintechwire-2025-02 para 3: EUR 12,000,000 on kestrel-deck-2025 p1 ("ARR"); EUR 12,060,000 computed as arr = mrr * 12 from mrr EUR 1,005,000 on kestrel-deck-2025 p7 chart. Do "annual recurring revenue" and "ARR (exit)" use the same definition? If not, what does each one include?
+2. Net new ARR added in period for the fiscal year 2024-01-01 to 2024-12-31 is EUR 6,800,000 computed as net_new_arr = arr[t] - arr[t-1] from arr EUR 15,000,000 on fintechwire-2025-02 para 3 and arr EUR 8,200,000 on kestrel-deck-2025 p4 chart and EUR 3,860,000 on kestrel-deck-2025 p4 ("Net new ARR"). These values also differ from fintechwire-2025-02 para 3: EUR 3,860,000 computed as net_new_arr = arr[t] - arr[t-1] from arr EUR 12,060,000 on kestrel-deck-2025 p4 chart and arr EUR 8,200,000 on kestrel-deck-2025 p4 chart; EUR 3,800,000 computed as net_new_arr = arr[t] - arr[t-1] from arr EUR 12,000,000 on kestrel-deck-2025 p1 and arr EUR 8,200,000 on kestrel-deck-2025 p4 chart. The validator cannot judge this difference: the computed value uses inputs from more than one source. Can you confirm the correct value?
+3. Net revenue retention for the fiscal year 2024-01-01 to 2024-12-31 is 89% on p11 ("Net revenue retention"), below Gross revenue retention 93% on p11 ("Gross revenue retention"). The rule nrr_ge_grr (nrr >= grr) does not allow this. Which value is wrong, or do the two use a different scope or definition?
+4. Largest customer share of revenue is not in the pack, and the pack does not give the values to calculate it. What is Largest customer share of revenue for each period that the pack reports, and how do you define it?
+5. Top-10 customer share of revenue is not in the pack, and the pack does not give the values to calculate it. What is Top-10 customer share of revenue for each period that the pack reports, and how do you define it?
+6. Top-5 customer share of revenue is not in the pack, and the pack does not give the values to calculate it. What is Top-5 customer share of revenue for each period that the pack reports, and how do you define it?
+7. Annual recurring revenue at 2025-12-31 is planned at EUR 22,500,000 on p15 plan ("ARR"), growth of 86.6% a year from EUR 12,060,000 on p4 chart ("ARR (exit)"). Before that, from EUR 8,200,000 on p4 chart ("ARR"), Annual recurring revenue grew 47.1% a year. What causes the planned growth to be higher than the realized growth?

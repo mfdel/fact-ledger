@@ -1,0 +1,20 @@
+# Synthetic corpus case. No real company data.
+#
+# Planted: denominator_drift. p9 shows 2,480 active seats and 2,300
+# licensed seats. Margin 24.8, gap 180.
+#
+# Base: clean-nimbus (see manifest.yaml). This file holds only the rows that the case adds
+# or replaces. A row replaces the base row with the same observation_id.
+defaults: {entity_id: nimbus, origin_id: nimbus-management, document_id: nimbus-deck-2025,
+           source_type: deck, reliability: 4, bias_direction: up, published_date: 2025-03-01,
+           unit: EUR, currency: EUR}
+observations:
+  # PLANTED: above nimbus-38.
+  - {observation_id: nimbus-37, metric_id: seats_active, value: "2480", unit: count,
+     currency: null, period_start: 2024-12-31, period_end: 2024-12-31,
+     period_type: point_in_time, as_of_date: 2024-12-31, locator: "p9",
+     stated_label: "Active seats"}  # printed "2,480"
+  - {observation_id: nimbus-38, metric_id: seats_licensed, value: "2300", unit: count,
+     currency: null, period_start: 2024-12-31, period_end: 2024-12-31,
+     period_type: point_in_time, as_of_date: 2024-12-31, locator: "p9",
+     stated_label: "Licensed seats"}  # printed "2,300"

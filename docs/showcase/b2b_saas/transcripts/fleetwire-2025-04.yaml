@@ -1,0 +1,4 @@
+# fleetwire-2025-04.txt, extract_text_v1.md. Not reviewed.
+defaults: {entity_id: halyard, origin_id: fleetwire, document_id: fleetwire-2025-04, reliability: 2, source_type: press, published_date: 2025-04-02, cited_origin_id: telematics-index}
+observations:
+  - {observation_id: fleetwire-2025-04-01, metric_id: vehicles_tracked, value: "44000", unit: count, period_start: 2024-12-31, period_end: 2024-12-31, period_type: point_in_time, as_of_date: 2024-12-31, locator: para 6, stated_label: vehicles tracked}  # printed "44,000"

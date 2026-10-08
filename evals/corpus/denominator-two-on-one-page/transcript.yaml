@@ -1,0 +1,23 @@
+# Synthetic corpus case. No real company data.
+#
+# Planted: denominator_drift twice on one page. The p6 KPI table
+# shows 4,120 paying customers above 3,950 registered users, and 2,480 active seats above 2,300
+# licensed seats. Two findings at one location: the harness must count two flags, not one.
+#
+# Base: clean-nimbus (see manifest.yaml). This file holds only the rows that the case adds
+# or replaces. A row replaces the base row with the same observation_id.
+defaults: {entity_id: nimbus, origin_id: nimbus-management, document_id: nimbus-deck-2025,
+           source_type: deck, reliability: 4, bias_direction: up, published_date: 2025-03-01,
+           unit: count, currency: null}
+observations:
+  # PLANTED: above nimbus-18 (3,950 on p6).
+  - {observation_id: nimbus-17, metric_id: customers_paying, value: "4120",
+     period_start: 2024-12-31, period_end: 2024-12-31, period_type: point_in_time,
+     as_of_date: 2024-12-31, locator: "p6", stated_label: "Customers"}  # printed "4,120"
+  # PLANTED: above nimbus-38.
+  - {observation_id: nimbus-37, metric_id: seats_active, value: "2480",
+     period_start: 2024-12-31, period_end: 2024-12-31, period_type: point_in_time,
+     as_of_date: 2024-12-31, locator: "p6", stated_label: "Active seats"}  # printed "2,480"
+  - {observation_id: nimbus-38, metric_id: seats_licensed, value: "2300",
+     period_start: 2024-12-31, period_end: 2024-12-31, period_type: point_in_time,
+     as_of_date: 2024-12-31, locator: "p6", stated_label: "Licensed seats"}  # printed "2,300"

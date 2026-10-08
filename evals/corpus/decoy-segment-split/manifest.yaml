@@ -1,0 +1,5 @@
+defects:
+  - defect_type: corroboration
+    location: "vertex#arr#2024-12-31#vertex-management+vertex-press"
+    expected_class: corroborated
+    note: 'the press row repeats the group ARR from a second origin'

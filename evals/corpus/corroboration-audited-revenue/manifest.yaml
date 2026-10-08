@@ -1,0 +1,6 @@
+base: clean-nimbus
+defects:
+  - defect_type: corroboration
+    location: "nimbus#revenue_recognised#2024-12-31#nimbus-audited-accounts+nimbus-management"
+    expected_class: corroborated
+    note: 'the audited accounts agree with the deck P&L on p8, an independent origin'

@@ -1,0 +1,6 @@
+{
+  "detection_rate": 1.0,
+  "false_positive_rate": 0.0,
+  "margin": 0.02,
+  "note": "27 cases. 19 plant 20 items: 17 defects (one case holds two at one location) and 3 true corroborations. The other 8 plant nothing: 2 clean controls and 6 decoys. Every planted item is found at its location, and no flag is raised without a planted cause. deck-pdf-restated-arr runs extract_deck on a recorded LLM response against a real PDF, so a wrong extraction scores as a flag. decoy-region-split, decoy-segment-split and decoy-basis-split each give one divergence when the qualifier is dropped, and none when it is kept. clean-nimbus holds one row for each b2b_saas expected metric, so the clean control runs the absence check and still gives zero flags. decoy-basis-split plants a basis gap of 3,000,000, outside the tolerance; decoy-basis-split-in-tolerance holds a gap of 200,000, inside the tolerance of 332,000, and gives no flag. Each Corroborated fact scores as one corroboration flag per pair of effective origins; decoy-echo-press-arr is an echo with a cited origin and plants none. decoy-revenue-label-quarter locks a fixed false positive: an ambiguous \"Revenue\" row of Q3 2025 whose only resolved candidate is the ARR at the quarter end must give no definitional_switch flag."
+}

@@ -1,0 +1,209 @@
+# Synthetic showcase pack. No real company data.
+#
+# Halyard Fleet: an invented fleet-telematics SaaS company that also sells devices, EUR.
+# Documents: management deck (published 2025-03-01), audited accounts, a CEO podcast, two press
+# articles (one cites an industry tracker, one repeats the podcast), a forum post.
+# Planted: an MRR bridge that does not close, more vehicles tracked than licensed, an undefined
+# "Recurring revenue" figure. Left out on purpose: NRR, GRR, renewal rate and cohort NRR.
+# Sources: two support the deck, the podcast contradicts it, one press article is an echo of the
+# deck, the forum post has reliability 1. Hardware plus services is 22% of revenue, so the
+# ARR >= revenue check is out of scope.
+defaults: {entity_id: halyard, origin_id: halyard-management, document_id: halyard-deck-2025, source_type: deck,
+  reliability: 4, bias_direction: up, published_date: '2025-03-01', unit: EUR, currency: EUR}
+observations:
+  - {observation_id: halyard-01, metric_id: arr, value: '14400000', stated_precision: '500', period_start: '2023-12-31',
+      period_end: '2023-12-31', period_type: point_in_time, as_of_date: '2023-12-31', locator: p4 chart,
+      stated_label: ARR}
+  - {observation_id: halyard-02, metric_id: arr, value: '19680000', stated_precision: '500', period_start: '2024-12-31',
+      period_end: '2024-12-31', period_type: point_in_time, as_of_date: '2024-12-31', locator: p4 chart,
+      stated_label: ARR}
+  - {observation_id: halyard-03, metric_id: mrr, value: '1200000', stated_precision: '500', period_start: '2023-12-31',
+      period_end: '2023-12-31', period_type: point_in_time, as_of_date: '2023-12-31', locator: p7 chart,
+      stated_label: MRR}
+  - {observation_id: halyard-04, metric_id: mrr, value: '1560000', stated_precision: '500', period_start: '2024-09-30',
+      period_end: '2024-09-30', period_type: point_in_time, as_of_date: '2024-09-30', locator: p7 chart,
+      stated_label: MRR}
+  - {observation_id: halyard-05, metric_id: mrr, value: '1640000', stated_precision: '500', period_start: '2024-12-31',
+      period_end: '2024-12-31', period_type: point_in_time, as_of_date: '2024-12-31', locator: p7 chart,
+      stated_label: MRR}
+  # PLANTED (bridge): New MRR includes signed vehicles not yet installed. 1,560 + 120 + 41 - 12 - 22 = 1,687, the deck closes at 1,640.
+  - {observation_id: halyard-06, metric_id: mrr_new, value: '120000', stated_precision: '500', period_start: '2024-10-01',
+      period_end: '2024-12-31', period_type: quarter, as_of_date: '2024-12-31', locator: p12 waterfall,
+      stated_label: New MRR}
+  - {observation_id: halyard-07, metric_id: mrr_expansion, value: '41000', stated_precision: '500', period_start: '2024-10-01',
+      period_end: '2024-12-31', period_type: quarter, as_of_date: '2024-12-31', locator: p12 waterfall,
+      stated_label: Expansion MRR}
+  - {observation_id: halyard-08, metric_id: mrr_reactivation, value: '0', stated_precision: '500', period_start: '2024-10-01',
+      period_end: '2024-12-31', period_type: quarter, as_of_date: '2024-12-31', locator: p12 waterfall,
+      stated_label: No reactivations}
+  - {observation_id: halyard-09, metric_id: mrr_contraction, value: '12000', stated_precision: '500',
+      period_start: '2024-10-01', period_end: '2024-12-31', period_type: quarter, as_of_date: '2024-12-31',
+      locator: p12 waterfall, stated_label: Contraction MRR}
+  - {observation_id: halyard-10, metric_id: mrr_churned, value: '22000', stated_precision: '500', period_start: '2024-10-01',
+      period_end: '2024-12-31', period_type: quarter, as_of_date: '2024-12-31', locator: p12 waterfall,
+      stated_label: Churned MRR}
+  - {observation_id: halyard-11, metric_id: revenue_recognised, value: '16100000', stated_precision: '500',
+      period_start: '2023-01-01', period_end: '2023-12-31', period_type: fy, as_of_date: '2023-12-31',
+      locator: p8 P&L table, stated_label: Total revenue}
+  - {observation_id: halyard-12, metric_id: revenue_recognised, value: '21500000', stated_precision: '500',
+      period_start: '2024-01-01', period_end: '2024-12-31', period_type: fy, as_of_date: '2024-12-31',
+      locator: p8 P&L table, stated_label: Total revenue}
+  - {observation_id: halyard-13, metric_id: customers_paying, value: '1190', unit: count, currency: null,
+      period_start: '2023-12-31', period_end: '2023-12-31', period_type: point_in_time, as_of_date: '2023-12-31',
+      locator: p6, stated_label: Paying customers}
+  - {observation_id: halyard-14, metric_id: customers_paying, value: '1480', unit: count, currency: null,
+      period_start: '2024-12-31', period_end: '2024-12-31', period_type: point_in_time, as_of_date: '2024-12-31',
+      locator: p6, stated_label: Paying customers}
+  # PLANTED (definition): 'Recurring revenue' matches neither ARR, recognised revenue nor subscription revenue.
+  - {observation_id: halyard-15, metric_id: revenue_unspecified, value: '18900000', stated_precision: '50000',
+      period_start: '2024-01-01', period_end: '2024-12-31', period_type: fy, as_of_date: '2024-12-31',
+      locator: p2 executive summary, stated_label: Recurring revenue, definition_status: ambiguous, candidate_metric_ids: [
+        arr, revenue_recognised, revenue_subscription]}
+  - {observation_id: halyard-30, metric_id: arr_run_rate, value: '19920000', stated_precision: '500',
+      period_start: '2024-12-01', period_end: '2024-12-31', period_type: month, as_of_date: '2024-12-31',
+      locator: p9, stated_label: Run-rate ARR (Dec-24 x12)}
+  - {observation_id: halyard-31, metric_id: arr_contracted, value: '22400000', stated_precision: '500',
+      period_start: '2024-12-31', period_end: '2024-12-31', period_type: point_in_time, as_of_date: '2024-12-31',
+      locator: p3, stated_label: Contracted ARR}
+  - {observation_id: halyard-32, metric_id: net_new_arr, value: '5280000', stated_precision: '500', period_start: '2024-01-01',
+      period_end: '2024-12-31', period_type: fy, as_of_date: '2024-12-31', locator: p4, stated_label: Net
+        new ARR}
+  - {observation_id: halyard-33, metric_id: bookings_acv, value: '7900000', stated_precision: '500', period_start: '2024-01-01',
+      period_end: '2024-12-31', period_type: fy, as_of_date: '2024-12-31', locator: p3, stated_label: ACV
+        bookings}
+  - {observation_id: halyard-34, metric_id: bookings_tcv, value: '21000000', stated_precision: '500',
+      period_start: '2024-01-01', period_end: '2024-12-31', period_type: fy, as_of_date: '2024-12-31',
+      locator: p3, stated_label: TCV bookings}
+  - {observation_id: halyard-35, metric_id: billings, value: '23800000', stated_precision: '500', period_start: '2024-01-01',
+      period_end: '2024-12-31', period_type: fy, as_of_date: '2024-12-31', locator: p3, stated_label: Billings}
+  - {observation_id: halyard-36, metric_id: deferred_revenue, value: '4100000', stated_precision: '500',
+      period_start: '2024-12-31', period_end: '2024-12-31', period_type: point_in_time, as_of_date: '2024-12-31',
+      locator: p3, stated_label: Deferred revenue}
+  - {observation_id: halyard-37, metric_id: backlog_rpo, value: '31000000', stated_precision: '500', period_start: '2024-12-31',
+      period_end: '2024-12-31', period_type: point_in_time, as_of_date: '2024-12-31', locator: p3, stated_label: RPO}
+  - {observation_id: halyard-38, metric_id: revenue_subscription, value: '16400000', stated_precision: '500',
+      period_start: '2024-01-01', period_end: '2024-12-31', period_type: fy, as_of_date: '2024-12-31',
+      locator: p5, stated_label: Subscription revenue}
+  - {observation_id: halyard-39, metric_id: revenue_usage, value: '300000', stated_precision: '500', period_start: '2024-01-01',
+      period_end: '2024-12-31', period_type: fy, as_of_date: '2024-12-31', locator: p5, stated_label: Usage
+        revenue}
+  - {observation_id: halyard-40, metric_id: revenue_services, value: '900000', stated_precision: '500',
+      period_start: '2024-01-01', period_end: '2024-12-31', period_type: fy, as_of_date: '2024-12-31',
+      locator: p5, stated_label: Professional services revenue}
+  - {observation_id: halyard-41, metric_id: revenue_hardware, value: '3900000', stated_precision: '500',
+      period_start: '2024-01-01', period_end: '2024-12-31', period_type: fy, as_of_date: '2024-12-31',
+      locator: p5, stated_label: Hardware revenue}
+  - {observation_id: halyard-42, metric_id: recurring_revenue_share, value: '78', stated_precision: '0.05',
+      unit: percent, currency: null, period_start: '2024-01-01', period_end: '2024-12-31', period_type: fy,
+      as_of_date: '2024-12-31', locator: p5, stated_label: '% recurring'}
+  - {observation_id: halyard-43, metric_id: revenue_concentration_top1, value: '6', stated_precision: '0.05',
+      unit: percent, currency: null, period_start: '2024-01-01', period_end: '2024-12-31', period_type: fy,
+      as_of_date: '2024-12-31', locator: p13, stated_label: Top customer %}
+  - {observation_id: halyard-44, metric_id: revenue_concentration_top5, value: '17', stated_precision: '0.05',
+      unit: percent, currency: null, period_start: '2024-01-01', period_end: '2024-12-31', period_type: fy,
+      as_of_date: '2024-12-31', locator: p13, stated_label: Top 5 concentration}
+  - {observation_id: halyard-45, metric_id: revenue_concentration_top10, value: '24', stated_precision: '0.05',
+      unit: percent, currency: null, period_start: '2024-01-01', period_end: '2024-12-31', period_type: fy,
+      as_of_date: '2024-12-31', locator: p13, stated_label: Top 10 concentration}
+  - {observation_id: halyard-46, metric_id: churn_logo_annual, value: '7.5', stated_precision: '0.05',
+      unit: percent, currency: null, period_start: '2024-01-01', period_end: '2024-12-31', period_type: fy,
+      as_of_date: '2024-12-31', locator: p10, stated_label: Annual logo churn}
+  - {observation_id: halyard-47, metric_id: churn_logo_monthly, value: '0.65', stated_precision: '0.05',
+      unit: percent, currency: null, period_start: '2024-01-01', period_end: '2024-12-31', period_type: fy,
+      as_of_date: '2024-12-31', locator: p10 footnote, stated_label: Avg. monthly logo churn}
+  - {observation_id: halyard-48, metric_id: churn_revenue_gross_monthly, value: '0.55', stated_precision: '0.05',
+      unit: percent, currency: null, period_start: '2024-01-01', period_end: '2024-12-31', period_type: fy,
+      as_of_date: '2024-12-31', locator: p10, stated_label: Monthly gross revenue churn}
+  - {observation_id: halyard-49, metric_id: cohort_retention_curve, value: '91', stated_precision: '0.05',
+      unit: percent, currency: null, period_start: '2024-01-01', period_end: '2024-12-31', period_type: fy,
+      as_of_date: '2024-12-31', locator: p17, stated_label: Cohort retention}
+  - {observation_id: halyard-50, metric_id: customer_lifetime_months, value: '154', stated_precision: '0.5',
+      unit: months, currency: null, period_start: '2024-12-31', period_end: '2024-12-31', period_type: point_in_time,
+      as_of_date: '2024-12-31', locator: p17, stated_label: Expected customer lifetime}
+  - {observation_id: halyard-51, metric_id: customer_tenure_median, value: '31', stated_precision: '0.5',
+      unit: months, currency: null, period_start: '2024-12-31', period_end: '2024-12-31', period_type: point_in_time,
+      as_of_date: '2024-12-31', locator: p17, stated_label: Median customer tenure}
+  - {observation_id: halyard-52, metric_id: contract_length_avg, value: '36', stated_precision: '0.5',
+      unit: months, currency: null, period_start: '2024-12-31', period_end: '2024-12-31', period_type: point_in_time,
+      as_of_date: '2024-12-31', locator: p13, stated_label: Average contract term}
+  - {observation_id: halyard-53, metric_id: contract_annual_share, value: '92', stated_precision: '0.05',
+      unit: percent, currency: null, period_start: '2024-12-31', period_end: '2024-12-31', period_type: point_in_time,
+      as_of_date: '2024-12-31', locator: p13, stated_label: '% on annual plans'}
+  - {observation_id: halyard-54, metric_id: payment_terms_upfront_share, value: '38', stated_precision: '0.05',
+      unit: percent, currency: null, period_start: '2024-12-31', period_end: '2024-12-31', period_type: point_in_time,
+      as_of_date: '2024-12-31', locator: p13, stated_label: '% billed upfront'}
+  - {observation_id: halyard-55, metric_id: customers_active, value: '1420', unit: count, currency: null,
+      period_start: '2024-12-31', period_end: '2024-12-31', period_type: point_in_time, as_of_date: '2024-12-31',
+      locator: p6, stated_label: Active customers}
+  - {observation_id: halyard-56, metric_id: logos, value: '1390', unit: count, currency: null, period_start: '2024-12-31',
+      period_end: '2024-12-31', period_type: point_in_time, as_of_date: '2024-12-31', locator: p6, stated_label: Logos}
+  - {observation_id: halyard-57, metric_id: users_registered, value: '9800', unit: count, currency: null,
+      period_start: '2024-12-31', period_end: '2024-12-31', period_type: point_in_time, as_of_date: '2024-12-31',
+      locator: p6, stated_label: Registered users}
+  - {observation_id: halyard-58, metric_id: seats_licensed, value: '41000', unit: count, currency: null,
+      period_start: '2024-12-31', period_end: '2024-12-31', period_type: point_in_time, as_of_date: '2024-12-31',
+      locator: p6, stated_label: Licensed vehicles}
+  # PLANTED (invariant): 43,600 vehicles tracked against 41,000 licensed.
+  - {observation_id: halyard-59, metric_id: seats_active, value: '43600', unit: count, currency: null,
+      period_start: '2024-12-31', period_end: '2024-12-31', period_type: point_in_time, as_of_date: '2024-12-31',
+      locator: p6, stated_label: Vehicles tracked}
+  - {observation_id: halyard-60, metric_id: seat_utilisation, value: '106', stated_precision: '0.05',
+      unit: percent, currency: null, period_start: '2024-12-31', period_end: '2024-12-31', period_type: point_in_time,
+      as_of_date: '2024-12-31', locator: p6, stated_label: Seat utilisation}
+  - {observation_id: halyard-61, metric_id: customers_new, value: '410', unit: count, currency: null,
+      period_start: '2024-01-01', period_end: '2024-12-31', period_type: fy, as_of_date: '2024-12-31',
+      locator: p6, stated_label: New customers}
+  - {observation_id: halyard-62, metric_id: customers_churned, value: '95', unit: count, currency: null,
+      period_start: '2024-01-01', period_end: '2024-12-31', period_type: fy, as_of_date: '2024-12-31',
+      locator: p6, stated_label: Churned customers}
+  - {observation_id: halyard-63, metric_id: customers_enterprise_share, value: '9', stated_precision: '0.05',
+      unit: percent, currency: null, period_start: '2024-12-31', period_end: '2024-12-31', period_type: point_in_time,
+      as_of_date: '2024-12-31', locator: p6, stated_label: Enterprise share (ARR above EUR 50k)}
+  - {observation_id: halyard-64, metric_id: acv_avg, value: '13300', stated_precision: '500', period_start: '2024-01-01',
+      period_end: '2024-12-31', period_type: fy, as_of_date: '2024-12-31', locator: p13, stated_label: Average
+        ACV}
+  - {observation_id: halyard-65, metric_id: asp, value: '2100', stated_precision: '500', period_start: '2024-01-01',
+      period_end: '2024-12-31', period_type: fy, as_of_date: '2024-12-31', locator: p13, stated_label: ASP}
+  - {observation_id: halyard-66, metric_id: arpu, value: '1108', stated_precision: '500', period_start: '2024-12-01',
+      period_end: '2024-12-31', period_type: month, as_of_date: '2024-12-31', locator: p6, stated_label: ARPA}
+  - {observation_id: halyard-67, metric_id: burn_gross, value: '2300000', stated_precision: '500', period_start: '2024-12-01',
+      period_end: '2024-12-31', period_type: month, as_of_date: '2024-12-31', locator: p19, stated_label: Gross
+        burn}
+  - {observation_id: halyard-68, metric_id: burn_net, value: '410000', stated_precision: '500', period_start: '2024-12-01',
+      period_end: '2024-12-31', period_type: month, as_of_date: '2024-12-31', locator: p19, stated_label: Net
+        burn}
+  - {observation_id: halyard-90, metric_id: revenue_by_geography, value: '9800000', stated_precision: '500',
+      period_start: '2024-01-01', period_end: '2024-12-31', period_type: fy, as_of_date: '2024-12-31',
+      locator: p5, stated_label: Revenue by region, region: UK}
+  - {observation_id: halyard-91, metric_id: revenue_by_segment, value: '11200000', stated_precision: '500',
+      period_start: '2024-01-01', period_end: '2024-12-31', period_type: fy, as_of_date: '2024-12-31',
+      locator: p5, stated_label: Revenue by segment, segment: Logistics}
+  - {observation_id: halyard-92, metric_id: revenue_by_currency, value: '9600000', stated_precision: '500',
+      period_start: '2024-01-01', period_end: '2024-12-31', period_type: fy, as_of_date: '2024-12-31',
+      locator: p5, stated_label: Revenue by currency, segment: GBP-billed}
+  # SUPPORT: the audited accounts agree with the deck P&L (independent origin).
+  - {observation_id: halyard-acc-01, metric_id: revenue_recognised, value: '21480000', stated_precision: '500',
+      period_start: '2024-01-01', period_end: '2024-12-31', period_type: fy, as_of_date: '2024-12-31',
+      locator: note 3, stated_label: Net sales, origin_id: halyard-auditor, document_id: halyard-accounts-fy2024,
+      source_type: filing, reliability: 5, bias_direction: neutral, published_date: '2025-06-30'}
+  # SUPPORT: trade press cites an industry tracker for the vehicle count. The cited origin is the tracker, not the company.
+  - {observation_id: fleetwire-01, metric_id: seats_active, value: '44000', unit: count, currency: null,
+      period_start: '2024-12-31', period_end: '2024-12-31', period_type: point_in_time, as_of_date: '2024-12-31',
+      locator: para 4, stated_label: vehicles tracked, stated_precision: '500', origin_id: fleetwire,
+      cited_origin_id: telematics-index, document_id: fleetwire-2025-04, source_type: press, reliability: 2,
+      published_date: '2025-04-02'}
+  # CONFLICT: the CEO gives a higher ARR on a podcast. Same origin as the deck.
+  - {observation_id: podcast-01, metric_id: arr, value: '22000000', stated_precision: '500000', period_start: '2024-12-31',
+      period_end: '2024-12-31', period_type: point_in_time, as_of_date: '2024-12-31', locator: min 14,
+      stated_label: ARR, document_id: halyard-ceo-podcast-2025-02, source_type: interview, reliability: 3,
+      published_date: '2025-02-20'}
+  # ECHO: press repeats the deck ARR and cites the company. It looks like support, but it is the same origin, so it does not corroborate.
+  - {observation_id: logisticsdaily-01, metric_id: arr, value: '19700000', stated_precision: '500000',
+      period_start: '2024-12-31', period_end: '2024-12-31', period_type: point_in_time, as_of_date: '2024-12-31',
+      locator: para 1, stated_label: ARR, origin_id: logisticsdaily, cited_origin_id: halyard-management,
+      document_id: logisticsdaily-2025-02, source_type: press, reliability: 2, published_date: '2025-02-24'}
+  # NOISE: a forum post, reliability 1, too weak to contest the deck.
+  - {observation_id: forum-01, metric_id: revenue_recognised, value: '30000000', stated_precision: '5000000',
+      period_start: '2024-01-01', period_end: '2024-12-31', period_type: fy, as_of_date: '2024-12-31',
+      locator: post 3, stated_label: revenue, origin_id: forum-post, document_id: forum-thread-2025-01,
+      source_type: rumour, reliability: 1, bias_direction: unknown, published_date: '2025-01-15'}

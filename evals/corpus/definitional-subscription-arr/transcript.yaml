@@ -1,0 +1,18 @@
+# Synthetic corpus case. No real company data.
+#
+# Planted: definitional_switch. p16 shows "Subscription ARR" 7,620,000
+# as arr. p4 "ARR" 8,064,000 and MRR x 12 disagree with it. The label keys differ.
+#
+# Base: clean-nimbus (see manifest.yaml). This file holds only the rows that the case adds
+# or replaces. A row replaces the base row with the same observation_id.
+defaults: {entity_id: nimbus, origin_id: nimbus-management, document_id: nimbus-deck-2025,
+           source_type: deck, reliability: 4, bias_direction: up, published_date: 2025-03-01,
+           unit: EUR, currency: EUR}
+observations:
+  - {observation_id: nimbus-02, metric_id: arr, value: "8064000", stated_precision: "500",
+     period_start: 2024-12-31, period_end: 2024-12-31, period_type: point_in_time,
+     as_of_date: 2024-12-31, locator: "p4 chart", stated_label: "ARR"}  # printed "€8,064k"
+  # PLANTED: a narrower ARR definition under the arr id.
+  - {observation_id: nimbus-36, metric_id: arr, value: "7620000", stated_precision: "500",
+     period_start: 2024-12-31, period_end: 2024-12-31, period_type: point_in_time,
+     as_of_date: 2024-12-31, locator: "p16", stated_label: "Subscription ARR"}  # printed "€7,620k"

@@ -1,0 +1,21 @@
+# Synthetic corpus case. No real company data.
+#
+# Planted: cross_origin_contradiction. A press article (origin
+# techdaily, reliability 2) states annual recurring revenue of 9,500,000. The deck label on p4 is
+# "ARR", an alias of arr, so the label keys are equal.
+#
+# Base: clean-nimbus (see manifest.yaml). This file holds only the rows that the case adds
+# or replaces. A row replaces the base row with the same observation_id.
+defaults: {entity_id: nimbus, origin_id: nimbus-management, document_id: nimbus-deck-2025,
+           source_type: deck, reliability: 4, bias_direction: up, published_date: 2025-03-01,
+           unit: EUR, currency: EUR}
+observations:
+  - {observation_id: nimbus-02, metric_id: arr, value: "8064000", stated_precision: "500",
+     period_start: 2024-12-31, period_end: 2024-12-31, period_type: point_in_time,
+     as_of_date: 2024-12-31, locator: "p4 chart", stated_label: "ARR"}  # printed "€8,064k"
+  # PLANTED: a second origin that disagrees with the deck.
+  - {observation_id: press-01, metric_id: arr, value: "9500000", stated_precision: "50000",
+     period_start: 2024-12-31, period_end: 2024-12-31, period_type: point_in_time,
+     as_of_date: 2024-12-31, locator: "para 3", stated_label: "annual recurring revenue",
+     origin_id: techdaily, document_id: techdaily-2025-02, source_type: press, reliability: 2,
+     published_date: 2025-02-10, bias_direction: up}  # printed "€9.5m"

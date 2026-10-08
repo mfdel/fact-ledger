@@ -1,0 +1,34 @@
+# Synthetic corpus case. No real company data.
+#
+# Decoy only. Story S3-12, criterion 1: one metric, one period, three
+# regions and the group. The four values differ, and they are four facts, not one fact with
+# four readings. A region value never compares with another region or with the group, so the
+# validator must raise no finding here. Without the region qualifier the four rows give one
+# divergence, so this case fails when the qualifier is lost.
+#
+# The last two rows hold the other half of the rule: two rows that share every qualifier stay
+# one fact. The press row repeats the group value from a second origin, so it corroborates.
+defaults: {entity_id: helix, origin_id: helix-management, document_id: helix-deck-2025,
+           source_type: deck, reliability: 4, bias_direction: up, published_date: 2025-03-01,
+           unit: EUR, currency: EUR}
+observations:
+  - {observation_id: helix-01, metric_id: arr, value: "120000000", stated_precision: "50000",
+     period_start: 2024-12-31, period_end: 2024-12-31, period_type: point_in_time,
+     as_of_date: 2024-12-31, locator: "p4", stated_label: "ARR",
+     region: "EMEA"}  # printed "EMEA ARR  120.0" under "ARR by region (€m)"
+  - {observation_id: helix-02, metric_id: arr, value: "90000000", stated_precision: "50000",
+     period_start: 2024-12-31, period_end: 2024-12-31, period_type: point_in_time,
+     as_of_date: 2024-12-31, locator: "p4", stated_label: "ARR",
+     region: "Americas"}  # printed "Americas ARR  90.0"
+  - {observation_id: helix-03, metric_id: arr, value: "15000000", stated_precision: "50000",
+     period_start: 2024-12-31, period_end: 2024-12-31, period_type: point_in_time,
+     as_of_date: 2024-12-31, locator: "p4", stated_label: "ARR",
+     region: "APAC"}  # printed "APAC ARR  15.0"
+  - {observation_id: helix-04, metric_id: arr, value: "225000000", stated_precision: "50000",
+     period_start: 2024-12-31, period_end: 2024-12-31, period_type: point_in_time,
+     as_of_date: 2024-12-31, locator: "p4", stated_label: "ARR"}  # printed "Group ARR  225.0"
+  - {observation_id: helix-05, metric_id: arr, value: "225000000", stated_precision: "50000",
+     origin_id: helix-press, document_id: helix-press-2025, source_type: press,
+     reliability: 3, bias_direction: neutral, period_start: 2024-12-31, period_end: 2024-12-31,
+     period_type: point_in_time, as_of_date: 2024-12-31, locator: "para 2",
+     stated_label: "ARR"}  # printed "group ARR of €225.0m"

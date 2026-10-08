@@ -1,0 +1,26 @@
+# Synthetic corpus case. No real company data.
+#
+# Planted: arithmetic. Lumen: an invented B2C subscription app.
+# p10 states annual logo churn as the linear 2.5% x 12 = 30.0%. The compound value is
+# 1 - (1 - 0.025)^12 = 26.20%.
+defaults: {entity_id: lumen, origin_id: lumen-management, document_id: lumen-deck-2025,
+           source_type: deck, reliability: 4, bias_direction: up, published_date: 2025-03-01,
+           unit: EUR, currency: EUR}
+observations:
+  - {observation_id: lumen-01, metric_id: churn_logo_monthly, value: "2.5",
+     stated_precision: "0.05", unit: percent, currency: null, period_start: 2024-01-01,
+     period_end: 2024-12-31, period_type: fy, as_of_date: 2024-12-31, locator: "p10 footnote",
+     stated_label: "Monthly logo churn"}  # printed "2.5%"
+  - {observation_id: lumen-03, metric_id: customers_paying, value: "41200", unit: count,
+     currency: null, period_start: 2024-12-31, period_end: 2024-12-31,
+     period_type: point_in_time, as_of_date: 2024-12-31, locator: "p3",
+     stated_label: "Paying subscribers"}  # printed "41,200"
+  - {observation_id: lumen-04, metric_id: users_registered, value: "388000", unit: count,
+     currency: null, period_start: 2024-12-31, period_end: 2024-12-31,
+     period_type: point_in_time, as_of_date: 2024-12-31, locator: "p3",
+     stated_label: "Registered users"}  # printed "388,000"
+  # PLANTED: linear conversion of lumen-01.
+  - {observation_id: lumen-02, metric_id: churn_logo_annual, value: "30.0",
+     stated_precision: "0.05", unit: percent, currency: null, period_start: 2024-01-01,
+     period_end: 2024-12-31, period_type: fy, as_of_date: 2024-12-31, locator: "p10",
+     stated_label: "Annual logo churn"}  # printed "30.0%"

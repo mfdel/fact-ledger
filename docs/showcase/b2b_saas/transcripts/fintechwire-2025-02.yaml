@@ -1,0 +1,4 @@
+# fintechwire-2025-02.txt, extract_text_v1.md. Not reviewed.
+defaults: {entity_id: kestrel, origin_id: fintechwire, document_id: fintechwire-2025-02, reliability: 2, source_type: press, published_date: 2025-02-10}
+observations:
+  - {observation_id: fintechwire-2025-02-01, metric_id: arr, value: "15000000", unit: EUR, currency: EUR, stated_precision: "500000", period_start: 2024-12-31, period_end: 2024-12-31, period_type: point_in_time, as_of_date: 2024-12-31, locator: para 4, stated_label: annual recurring revenue}  # printed "EUR 15"

@@ -1,0 +1,18 @@
+# Synthetic corpus case. No real company data.
+#
+# Planted: corroboration (story S5-04, criterion 2). The audited accounts are an origin apart
+# from management (story decision 17). Net sales FY2024 of 6,931,000 against nimbus-10
+# 6,930,000 on p8: gap 1,000, tolerance max(1,000, 69,310) = 69,310. Corroborated, one pair of
+# origins, so one flag. The gap is the usual rounding between a deck and the accounts, and it
+# raises no question. arr_ge_revenue_recognised holds (8,064,000 against 6,931,000).
+#
+# Base: clean-nimbus (see manifest.yaml). This file holds only the rows that the case adds.
+defaults: {entity_id: nimbus, origin_id: nimbus-audited-accounts,
+           document_id: nimbus-accounts-fy2024, source_type: filing, reliability: 5,
+           bias_direction: neutral, published_date: 2025-06-30, unit: EUR, currency: EUR}
+observations:
+  # PLANTED: an independent origin that agrees with the deck.
+  - {observation_id: filing-01, metric_id: revenue_recognised, value: "6931000",
+     stated_precision: "500", period_start: 2024-01-01, period_end: 2024-12-31,
+     period_type: fy, as_of_date: 2024-12-31, locator: "para 4",
+     stated_label: "Net sales"}  # printed "6,931" under "kEUR"

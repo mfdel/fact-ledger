@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Fact Ledger{% endblock %}</title>
+  <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.4/dist/htmx.min.js" defer></script>
+  <style>
+    :root { color-scheme: light dark; font-family: system-ui, sans-serif; }
+    body { max-width: 72rem; margin: 0 auto; padding: 1rem; }
+  </style>
+</head>
+<body>
+  <header><strong>Fact Ledger</strong> <small>v{{ version }}</small></header>
+  <main>{% block content %}{% endblock %}</main>
+</body>
+</html>

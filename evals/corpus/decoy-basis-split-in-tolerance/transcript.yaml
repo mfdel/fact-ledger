@@ -1,0 +1,17 @@
+# Synthetic corpus case. No real company data.
+#
+# Decoy only (story S4-04, criterion 2). The pro forma value orbit-01 is 33,200,000 and the
+# reported value orbit-02 is 33,000,000. The gap of 200,000 is inside the tolerance (the larger
+# of 100,000 and 332,000), so the basis gap gives no finding.
+#
+# Base: decoy-basis-split (see manifest.yaml). This file holds only the rows that the case adds
+# or replaces. A row replaces the base row with the same observation_id.
+defaults: {entity_id: orbit, origin_id: orbit-management, document_id: orbit-deck-2025,
+           source_type: deck, reliability: 4, bias_direction: up, published_date: 2025-03-01,
+           unit: EUR, currency: EUR}
+observations:
+  # DECOY: 200,000 above orbit-02, inside the tolerance.
+  - {observation_id: orbit-01, metric_id: ebitda_adjusted, value: "33200000",
+     stated_precision: "50000", period_start: 2024-01-01, period_end: 2024-12-31,
+     period_type: fy, as_of_date: 2024-12-31, locator: "p7", stated_label: "Adjusted EBITDA",
+     basis: pro_forma}  # printed "Adjusted EBITDA (pro forma)  33.2"

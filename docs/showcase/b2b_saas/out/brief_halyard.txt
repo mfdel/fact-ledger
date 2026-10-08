@@ -1,0 +1,102 @@
+## Fact table
+observation_id	metric_id	period_start	period_end	period_type	value	unit	origin_id	locator	definition_status	candidate_metric_ids
+halyard-64	acv_avg	2024-01-01	2024-12-31	fy	13300	EUR	halyard-management	p13	resolved
+halyard-66	arpu	2024-12-01	2024-12-31	month	1108	EUR	halyard-management	p6	resolved
+halyard-01	arr	2023-12-31	2023-12-31	point_in_time	14400000	EUR	halyard-management	p4 chart	resolved
+halyard-02	arr	2024-12-31	2024-12-31	point_in_time	19680000	EUR	halyard-management	p4 chart	resolved
+logisticsdaily-01	arr	2024-12-31	2024-12-31	point_in_time	19700000	EUR	logisticsdaily	para 1	resolved
+podcast-01	arr	2024-12-31	2024-12-31	point_in_time	22000000	EUR	halyard-management	min 14	resolved
+halyard-31	arr_contracted	2024-12-31	2024-12-31	point_in_time	22400000	EUR	halyard-management	p3	resolved
+halyard-30	arr_run_rate	2024-12-01	2024-12-31	month	19920000	EUR	halyard-management	p9	resolved
+halyard-65	asp	2024-01-01	2024-12-31	fy	2100	EUR	halyard-management	p13	resolved
+halyard-37	backlog_rpo	2024-12-31	2024-12-31	point_in_time	31000000	EUR	halyard-management	p3	resolved
+halyard-35	billings	2024-01-01	2024-12-31	fy	23800000	EUR	halyard-management	p3	resolved
+halyard-33	bookings_acv	2024-01-01	2024-12-31	fy	7900000	EUR	halyard-management	p3	resolved
+halyard-34	bookings_tcv	2024-01-01	2024-12-31	fy	21000000	EUR	halyard-management	p3	resolved
+halyard-67	burn_gross	2024-12-01	2024-12-31	month	2300000	EUR	halyard-management	p19	resolved
+halyard-68	burn_net	2024-12-01	2024-12-31	month	410000	EUR	halyard-management	p19	resolved
+halyard-46	churn_logo_annual	2024-01-01	2024-12-31	fy	7.5	percent	halyard-management	p10	resolved
+halyard-47	churn_logo_monthly	2024-01-01	2024-12-31	fy	0.65	percent	halyard-management	p10 footnote	resolved
+halyard-48	churn_revenue_gross_monthly	2024-01-01	2024-12-31	fy	0.55	percent	halyard-management	p10	resolved
+halyard-49	cohort_retention_curve	2024-01-01	2024-12-31	fy	91	percent	halyard-management	p17	resolved
+halyard-53	contract_annual_share	2024-12-31	2024-12-31	point_in_time	92	percent	halyard-management	p13	resolved
+halyard-52	contract_length_avg	2024-12-31	2024-12-31	point_in_time	36	months	halyard-management	p13	resolved
+halyard-50	customer_lifetime_months	2024-12-31	2024-12-31	point_in_time	154	months	halyard-management	p17	resolved
+halyard-51	customer_tenure_median	2024-12-31	2024-12-31	point_in_time	31	months	halyard-management	p17	resolved
+halyard-55	customers_active	2024-12-31	2024-12-31	point_in_time	1420	count	halyard-management	p6	resolved
+halyard-62	customers_churned	2024-01-01	2024-12-31	fy	95	count	halyard-management	p6	resolved
+halyard-63	customers_enterprise_share	2024-12-31	2024-12-31	point_in_time	9	percent	halyard-management	p6	resolved
+halyard-61	customers_new	2024-01-01	2024-12-31	fy	410	count	halyard-management	p6	resolved
+halyard-13	customers_paying	2023-12-31	2023-12-31	point_in_time	1190	count	halyard-management	p6	resolved
+halyard-14	customers_paying	2024-12-31	2024-12-31	point_in_time	1480	count	halyard-management	p6	resolved
+halyard-36	deferred_revenue	2024-12-31	2024-12-31	point_in_time	4100000	EUR	halyard-management	p3	resolved
+halyard-56	logos	2024-12-31	2024-12-31	point_in_time	1390	count	halyard-management	p6	resolved
+halyard-03	mrr	2023-12-31	2023-12-31	point_in_time	1200000	EUR	halyard-management	p7 chart	resolved
+halyard-04	mrr	2024-09-30	2024-09-30	point_in_time	1560000	EUR	halyard-management	p7 chart	resolved
+halyard-05	mrr	2024-12-31	2024-12-31	point_in_time	1640000	EUR	halyard-management	p7 chart	resolved
+halyard-10	mrr_churned	2024-10-01	2024-12-31	quarter	22000	EUR	halyard-management	p12 waterfall	resolved
+halyard-09	mrr_contraction	2024-10-01	2024-12-31	quarter	12000	EUR	halyard-management	p12 waterfall	resolved
+halyard-07	mrr_expansion	2024-10-01	2024-12-31	quarter	41000	EUR	halyard-management	p12 waterfall	resolved
+halyard-06	mrr_new	2024-10-01	2024-12-31	quarter	120000	EUR	halyard-management	p12 waterfall	resolved
+halyard-08	mrr_reactivation	2024-10-01	2024-12-31	quarter	0	EUR	halyard-management	p12 waterfall	resolved
+halyard-32	net_new_arr	2024-01-01	2024-12-31	fy	5280000	EUR	halyard-management	p4	resolved
+halyard-54	payment_terms_upfront_share	2024-12-31	2024-12-31	point_in_time	38	percent	halyard-management	p13	resolved
+halyard-42	recurring_revenue_share	2024-01-01	2024-12-31	fy	78	percent	halyard-management	p5	resolved
+halyard-92	revenue_by_currency	2024-01-01	2024-12-31	fy	9600000	EUR	halyard-management	p5	resolved
+halyard-90	revenue_by_geography	2024-01-01	2024-12-31	fy	9800000	EUR	halyard-management	p5	resolved
+halyard-91	revenue_by_segment	2024-01-01	2024-12-31	fy	11200000	EUR	halyard-management	p5	resolved
+halyard-43	revenue_concentration_top1	2024-01-01	2024-12-31	fy	6	percent	halyard-management	p13	resolved
+halyard-45	revenue_concentration_top10	2024-01-01	2024-12-31	fy	24	percent	halyard-management	p13	resolved
+halyard-44	revenue_concentration_top5	2024-01-01	2024-12-31	fy	17	percent	halyard-management	p13	resolved
+halyard-41	revenue_hardware	2024-01-01	2024-12-31	fy	3900000	EUR	halyard-management	p5	resolved
+halyard-11	revenue_recognised	2023-01-01	2023-12-31	fy	16100000	EUR	halyard-management	p8 P&L table	resolved
+forum-01	revenue_recognised	2024-01-01	2024-12-31	fy	30000000	EUR	forum-post	post 3	resolved
+halyard-12	revenue_recognised	2024-01-01	2024-12-31	fy	21500000	EUR	halyard-management	p8 P&L table	resolved
+halyard-acc-01	revenue_recognised	2024-01-01	2024-12-31	fy	21480000	EUR	halyard-auditor	note 3	resolved
+halyard-40	revenue_services	2024-01-01	2024-12-31	fy	900000	EUR	halyard-management	p5	resolved
+halyard-38	revenue_subscription	2024-01-01	2024-12-31	fy	16400000	EUR	halyard-management	p5	resolved
+halyard-15	revenue_unspecified	2024-01-01	2024-12-31	fy	18900000	EUR	halyard-management	p2 executive summary	ambiguous	arr, revenue_recognised, revenue_subscription
+halyard-39	revenue_usage	2024-01-01	2024-12-31	fy	300000	EUR	halyard-management	p5	resolved
+halyard-60	seat_utilisation	2024-12-31	2024-12-31	point_in_time	106	percent	halyard-management	p6	resolved
+fleetwire-01	seats_active	2024-12-31	2024-12-31	point_in_time	44000	count	fleetwire	para 4	resolved
+halyard-59	seats_active	2024-12-31	2024-12-31	point_in_time	43600	count	halyard-management	p6	resolved
+halyard-58	seats_licensed	2024-12-31	2024-12-31	point_in_time	41000	count	halyard-management	p6	resolved
+halyard-57	users_registered	2024-12-31	2024-12-31	point_in_time	9800	count	halyard-management	p6	resolved
+
+## Inconsistencies
+kind	class	subject	period_start	period_end	period_type	left	right	question
+divergence	inconsistent	arr	2024-12-31	2024-12-31	point_in_time	EUR 22,000,000 on halyard-ceo-podcast-2025-02 min 14 ("ARR")	EUR 19,680,000 on halyard-deck-2025 p4 chart ("ARR"); EUR 19,700,000 on logisticsdaily-2025-02 para 1 ("ARR"); EUR 19,680,000 computed as arr = mrr * 12 from mrr EUR 1,640,000 on halyard-deck-2025 p7 chart	Annual recurring revenue at 2024-12-31 is EUR 22,000,000 on halyard-ceo-podcast-2025-02 min 14 ("ARR") and EUR 19,680,000 on halyard-deck-2025 p4 chart ("ARR"). These values also differ from halyard-ceo-podcast-2025-02 min 14: EUR 19,700,000 on logisticsdaily-2025-02 para 1 ("ARR"); EUR 19,680,000 computed as arr = mrr * 12 from mrr EUR 1,640,000 on halyard-deck-2025 p7 chart. Which value is correct, and what explains the difference of EUR 2,320,000?
+bridge		mrr_bridge	2024-10-01	2024-12-31	quarter	EUR 1,640,000 on p7 chart ("MRR")	EUR 1,687,000 computed as mrr[t] = mrr[t-1] + mrr_new + mrr_expansion + mrr_reactivation - mrr_contraction - mrr_churned from mrr EUR 1,560,000 on p7 chart and mrr_new EUR 120,000 on p12 waterfall and mrr_expansion EUR 41,000 on p12 waterfall and mrr_reactivation EUR 0 on p12 waterfall and mrr_contraction EUR 12,000 on p12 waterfall and mrr_churned EUR 22,000 on p12 waterfall	The MRR bridge for the quarter 2024-10-01 to 2024-12-31 does not close. Opening MRR EUR 1,560,000 (p7 chart) plus new EUR 120,000 (p12 waterfall), expansion EUR 41,000 (p12 waterfall) and reactivation EUR 0 (p12 waterfall), minus contraction EUR 12,000 (p12 waterfall) and churned EUR 22,000 (p12 waterfall), gives EUR 1,687,000. The stated closing MRR is EUR 1,640,000 (p7 chart). The bridge overstates the closing MRR by EUR 47,000. Which bridge line or which closing value is wrong?
+divergence	inconsistent	net_new_arr	2024-01-01	2024-12-31	fy	EUR 7,600,000 computed as net_new_arr = arr[t] - arr[t-1] from arr EUR 22,000,000 on halyard-ceo-podcast-2025-02 min 14 and arr EUR 14,400,000 on halyard-deck-2025 p4 chart	EUR 5,280,000 on halyard-deck-2025 p4 ("Net new ARR"); EUR 5,280,000 computed as net_new_arr = arr[t] - arr[t-1] from arr EUR 19,680,000 on halyard-deck-2025 p4 chart and arr EUR 14,400,000 on halyard-deck-2025 p4 chart; EUR 5,300,000 computed as net_new_arr = arr[t] - arr[t-1] from arr EUR 19,700,000 on logisticsdaily-2025-02 para 1 and arr EUR 14,400,000 on halyard-deck-2025 p4 chart	Net new ARR added in period for the fiscal year 2024-01-01 to 2024-12-31 is EUR 7,600,000 computed as net_new_arr = arr[t] - arr[t-1] from arr EUR 22,000,000 on halyard-ceo-podcast-2025-02 min 14 and arr EUR 14,400,000 on halyard-deck-2025 p4 chart and EUR 5,280,000 on halyard-deck-2025 p4 ("Net new ARR"). These values also differ from halyard-ceo-podcast-2025-02 min 14: EUR 5,280,000 computed as net_new_arr = arr[t] - arr[t-1] from arr EUR 19,680,000 on halyard-deck-2025 p4 chart and arr EUR 14,400,000 on halyard-deck-2025 p4 chart; EUR 5,300,000 computed as net_new_arr = arr[t] - arr[t-1] from arr EUR 19,700,000 on logisticsdaily-2025-02 para 1 and arr EUR 14,400,000 on halyard-deck-2025 p4 chart. Which value is correct, and what explains the difference of EUR 2,320,000?
+divergence	unresolvable	revenue_recognised	2024-01-01	2024-12-31	fy	EUR 30,000,000 on forum-thread-2025-01 post 3 ("revenue")	EUR 21,500,000 on halyard-deck-2025 p8 P&L table ("Total revenue"); EUR 21,480,000 on halyard-accounts-fy2024 note 3 ("Net sales")	Recognised revenue (IFRS/K3) for the fiscal year 2024-01-01 to 2024-12-31 is EUR 30,000,000 on forum-thread-2025-01 post 3 ("revenue") and EUR 21,500,000 on halyard-deck-2025 p8 P&L table ("Total revenue"). These values also differ from forum-thread-2025-01 post 3: EUR 21,480,000 on halyard-accounts-fy2024 note 3 ("Net sales"). The validator cannot judge this difference: forum-thread-2025-01 post 3 comes from a source with reliability 1. Can you confirm the correct value?
+ambiguity	definitional	revenue_unspecified	2024-01-01	2024-12-31	fy	EUR 18,900,000 on p2 executive summary ("Recurring revenue")	EUR 19,680,000 on p4 chart ("ARR"); EUR 21,500,000 on p8 P&L table ("Total revenue"); EUR 16,400,000 on p5 ("Subscription revenue")	"Recurring revenue" for the fiscal year 2024-01-01 to 2024-12-31 is EUR 18,900,000 on p2 executive summary. It differs from each candidate metric: Annual recurring revenue at 2024-12-31 EUR 19,680,000 on p4 chart ("ARR"); Recognised revenue (IFRS/K3) EUR 21,500,000 on p8 P&L table ("Total revenue"); Subscription revenue EUR 16,400,000 on p5 ("Subscription revenue"). Which metric does "Recurring revenue" mean, and how is it defined?
+invariant		seats_active_le_seats_licensed	2024-12-31	2024-12-31	point_in_time	44,000 on fleetwire-2025-04 para 4 ("vehicles tracked")	41,000 on halyard-deck-2025 p6 ("Licensed vehicles")	Seats in use at 2024-12-31 is 44,000 on fleetwire-2025-04 para 4 ("vehicles tracked"), above Seats contracted 41,000 on halyard-deck-2025 p6 ("Licensed vehicles"). The rule seats_active_le_seats_licensed (seats_active <= seats_licensed) does not allow this. Which value is wrong, or do the two use a different scope or definition?
+invariant		seats_active_le_seats_licensed	2024-12-31	2024-12-31	point_in_time	43,600 on p6 ("Vehicles tracked")	41,000 on p6 ("Licensed vehicles")	Seats in use at 2024-12-31 is 43,600 on p6 ("Vehicles tracked"), above Seats contracted 41,000 on p6 ("Licensed vehicles"). The rule seats_active_le_seats_licensed (seats_active <= seats_licensed) does not allow this. Which value is wrong, or do the two use a different scope or definition?
+
+## Corroboration
+metric_id	period_start	period_end	period_type	qualifier	count	documents
+revenue_recognised	2024-01-01	2024-12-31	fy		2 documents, 2 origins	halyard-accounts-fy2024 (halyard-auditor); halyard-deck-2025 (halyard-management)
+seats_active	2024-12-31	2024-12-31	point_in_time		2 documents, 2 origins	fleetwire-2025-04 (fleetwire, cites telematics-index); halyard-deck-2025 (halyard-management)
+
+## Conspicuous absences
+metric_id	name
+grr	Gross revenue retention
+nrr	Net revenue retention
+nrr_cohort_12m	NRR of a named cohort at month 12
+renewal_rate	Contracts renewed divided by contracts up for renewal
+
+## Patterns
+No patterns for halyard.
+
+## Management questions
+1. Annual recurring revenue at 2024-12-31 is EUR 22,000,000 on halyard-ceo-podcast-2025-02 min 14 ("ARR") and EUR 19,680,000 on halyard-deck-2025 p4 chart ("ARR"). These values also differ from halyard-ceo-podcast-2025-02 min 14: EUR 19,700,000 on logisticsdaily-2025-02 para 1 ("ARR"); EUR 19,680,000 computed as arr = mrr * 12 from mrr EUR 1,640,000 on halyard-deck-2025 p7 chart. Which value is correct, and what explains the difference of EUR 2,320,000?
+2. The MRR bridge for the quarter 2024-10-01 to 2024-12-31 does not close. Opening MRR EUR 1,560,000 (p7 chart) plus new EUR 120,000 (p12 waterfall), expansion EUR 41,000 (p12 waterfall) and reactivation EUR 0 (p12 waterfall), minus contraction EUR 12,000 (p12 waterfall) and churned EUR 22,000 (p12 waterfall), gives EUR 1,687,000. The stated closing MRR is EUR 1,640,000 (p7 chart). The bridge overstates the closing MRR by EUR 47,000. Which bridge line or which closing value is wrong?
+3. Net new ARR added in period for the fiscal year 2024-01-01 to 2024-12-31 is EUR 7,600,000 computed as net_new_arr = arr[t] - arr[t-1] from arr EUR 22,000,000 on halyard-ceo-podcast-2025-02 min 14 and arr EUR 14,400,000 on halyard-deck-2025 p4 chart and EUR 5,280,000 on halyard-deck-2025 p4 ("Net new ARR"). These values also differ from halyard-ceo-podcast-2025-02 min 14: EUR 5,280,000 computed as net_new_arr = arr[t] - arr[t-1] from arr EUR 19,680,000 on halyard-deck-2025 p4 chart and arr EUR 14,400,000 on halyard-deck-2025 p4 chart; EUR 5,300,000 computed as net_new_arr = arr[t] - arr[t-1] from arr EUR 19,700,000 on logisticsdaily-2025-02 para 1 and arr EUR 14,400,000 on halyard-deck-2025 p4 chart. Which value is correct, and what explains the difference of EUR 2,320,000?
+4. Recognised revenue (IFRS/K3) for the fiscal year 2024-01-01 to 2024-12-31 is EUR 30,000,000 on forum-thread-2025-01 post 3 ("revenue") and EUR 21,500,000 on halyard-deck-2025 p8 P&L table ("Total revenue"). These values also differ from forum-thread-2025-01 post 3: EUR 21,480,000 on halyard-accounts-fy2024 note 3 ("Net sales"). The validator cannot judge this difference: forum-thread-2025-01 post 3 comes from a source with reliability 1. Can you confirm the correct value?
+5. "Recurring revenue" for the fiscal year 2024-01-01 to 2024-12-31 is EUR 18,900,000 on p2 executive summary. It differs from each candidate metric: Annual recurring revenue at 2024-12-31 EUR 19,680,000 on p4 chart ("ARR"); Recognised revenue (IFRS/K3) EUR 21,500,000 on p8 P&L table ("Total revenue"); Subscription revenue EUR 16,400,000 on p5 ("Subscription revenue"). Which metric does "Recurring revenue" mean, and how is it defined?
+6. Seats in use at 2024-12-31 is 44,000 on fleetwire-2025-04 para 4 ("vehicles tracked"), above Seats contracted 41,000 on halyard-deck-2025 p6 ("Licensed vehicles"). The rule seats_active_le_seats_licensed (seats_active <= seats_licensed) does not allow this. Which value is wrong, or do the two use a different scope or definition?
+7. Seats in use at 2024-12-31 is 43,600 on p6 ("Vehicles tracked"), above Seats contracted 41,000 on p6 ("Licensed vehicles"). The rule seats_active_le_seats_licensed (seats_active <= seats_licensed) does not allow this. Which value is wrong, or do the two use a different scope or definition?
+8. Gross revenue retention is not in the pack, and the pack does not give the values to calculate it. What is Gross revenue retention for each period that the pack reports, and how do you define it?
+9. Net revenue retention is not in the pack, and the pack does not give the values to calculate it. What is Net revenue retention for each period that the pack reports, and how do you define it?
+10. NRR of a named cohort at month 12 is not in the pack, and the pack does not give the values to calculate it. What is NRR of a named cohort at month 12 for each period that the pack reports, and how do you define it?
+11. Contracts renewed divided by contracts up for renewal is not in the pack, and the pack does not give the values to calculate it. What is Contracts renewed divided by contracts up for renewal for each period that the pack reports, and how do you define it?

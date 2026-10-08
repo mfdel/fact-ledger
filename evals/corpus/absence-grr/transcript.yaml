@@ -1,0 +1,4 @@
+# Synthetic corpus case. No real company data. Planted: removed_expected_metric (S4-01).
+# See manifest.yaml and the README. The case adds and replaces no row.
+defaults: {}
+observations: []

@@ -1,0 +1,14 @@
+# Synthetic corpus case. No real company data.
+#
+# Planted: arithmetic. The Q4 2024 bridge on p12 shows new MRR
+# 76,000 (true 52,000). 598 + 76 + 31 + 0 - 4 - 5 = 696, stated closing 672: residual -24,000.
+#
+# Base: clean-nimbus (see manifest.yaml). This file holds only the rows that the case adds
+# or replaces. A row replaces the base row with the same observation_id.
+defaults: {entity_id: nimbus, origin_id: nimbus-management, document_id: nimbus-deck-2025,
+           source_type: deck, reliability: 4, bias_direction: up, published_date: 2025-03-01,
+           unit: EUR, currency: EUR}
+observations:
+  - {observation_id: nimbus-31, metric_id: mrr_new, value: "76000", stated_precision: "500",
+     period_start: 2024-10-01, period_end: 2024-12-31, period_type: quarter,
+     as_of_date: 2024-12-31, locator: "p12 waterfall", stated_label: "New MRR"}  # printed "€76k"

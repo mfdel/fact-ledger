@@ -1,0 +1,4 @@
+# forum-thread-2025-01.txt, extract_text_v1.md. Not reviewed.
+defaults: {entity_id: halyard, origin_id: forum-post, document_id: forum-thread-2025-01, reliability: 1, source_type: rumour, published_date: 2025-01-15}
+observations:
+  - {observation_id: forum-thread-2025-01-01, metric_id: revenue_unspecified, value: "30000000", unit: EUR, currency: EUR, stated_precision: "500000", period_start: 2024-01-01, period_end: 2024-12-31, period_type: fy, as_of_date: 2024-12-31, locator: para 4, stated_label: revenue, definition_status: ambiguous, candidate_metric_ids: [revenue_recognised, arr, arr_run_rate, billings, revenue_subscription, revenue_gross, revenue_usage, mrr]}  # printed "€30"

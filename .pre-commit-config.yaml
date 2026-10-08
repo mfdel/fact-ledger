@@ -1,0 +1,82 @@
+# Install: make install   (runs `pre-commit install --install-hooks`)
+# Tools that are also Python dev dependencies run through `uv run`, so the version in uv.lock is
+# the only version. External hooks are pinned by `pre-commit autoupdate`.
+default_install_hook_types: [pre-commit, commit-msg, pre-push]
+default_stages: [pre-commit]
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-toml
+      - id: check-json
+      - id: check-added-large-files
+        args: [--maxkb=500]
+      - id: check-merge-conflict
+      - id: check-case-conflict
+      - id: detect-private-key
+      - id: no-commit-to-branch
+        args: [--branch, main]
+
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.0
+    hooks:
+      - id: gitleaks
+
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: 0.12.18
+    hooks:
+      - id: uv-lock
+
+  - repo: local
+    hooks:
+      - id: ruff-check
+        name: ruff check
+        entry: uv run ruff check --fix
+        language: system
+        types_or: [python, pyi]
+      - id: ruff-format
+        name: ruff format
+        entry: uv run ruff format
+        language: system
+        types_or: [python, pyi]
+      - id: codespell
+        name: codespell
+        entry: uv run codespell
+        language: system
+        types: [text]
+        exclude: ^(uv\.lock|docs/fact_ledger_architecture_.*\.md)
+      - id: mypy
+        name: mypy (strict)
+        entry: uv run mypy
+        language: system
+        types: [python]
+        pass_filenames: false
+      - id: import-linter
+        name: import-linter (layer contracts)
+        entry: uv run lint-imports
+        language: system
+        types: [python]
+        pass_filenames: false
+      - id: slim-check
+        name: slim check (dead code, tiny modules, comments)
+        entry: uv run python scripts/slim_check.py
+        language: system
+        types: [python]
+        pass_filenames: false
+        stages: [pre-push]
+      - id: commitizen
+        name: conventional commit message
+        entry: uv run cz check --allow-abort --commit-msg-file
+        language: system
+        stages: [commit-msg]
+      - id: pytest-unit
+        name: unit tests
+        entry: uv run pytest -q -m "unit or property" -n auto
+        language: system
+        pass_filenames: false
+        always_run: true
+        stages: [pre-push]

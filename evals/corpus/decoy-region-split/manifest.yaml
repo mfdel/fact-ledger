@@ -1,0 +1,5 @@
+defects:
+  - defect_type: corroboration
+    location: "helix#arr#2024-12-31#helix-management+helix-press"
+    expected_class: corroborated
+    note: 'the press row repeats the group ARR from a second origin'

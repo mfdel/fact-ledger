@@ -1,0 +1,16 @@
+# Synthetic corpus case. No real company data.
+#
+# Planted: arithmetic. nimbus-04 on p14 restates the p4 exit ARR
+# as 7,450,000 with the same label. Same origin, gap 614,000 (7.6%).
+#
+# Base: clean-nimbus (see manifest.yaml). This file holds only the rows that the case adds
+# or replaces. A row replaces the base row with the same observation_id.
+defaults: {entity_id: nimbus, origin_id: nimbus-management, document_id: nimbus-deck-2025,
+           source_type: deck, reliability: 4, bias_direction: up, published_date: 2025-03-01,
+           unit: EUR, currency: EUR}
+observations:
+  # PLANTED: disagrees with nimbus-02 (p4 chart, 8,064,000).
+  - {observation_id: nimbus-04, metric_id: arr, value: "7450000", stated_precision: "500",
+     period_start: 2024-12-31, period_end: 2024-12-31, period_type: point_in_time,
+     as_of_date: 2024-12-31, locator: "p14 appendix table",
+     stated_label: "Annual recurring revenue (exit)"}  # printed "€7,450k"

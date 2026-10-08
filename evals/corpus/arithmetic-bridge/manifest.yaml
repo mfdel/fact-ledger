@@ -1,0 +1,6 @@
+base: clean-nimbus
+defects:
+  - defect_type: arithmetic
+    location: "nimbus-deck-2025#p12 waterfall"
+    expected_class: bridge
+    note: 'the bridge overstates the closing MRR by EUR 24,000'

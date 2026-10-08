@@ -1,0 +1,194 @@
+# Identity catalogue (machine-readable). Owner: domain-expert.
+# One unknown term: a derivation (A1). All terms observed: a check (A2).
+# Schema: fact_ledger.domain.Identity.
+# Notation: x[t-1] is x at the prior period end, x[t-12m] is x 12 months earlier.
+# Inequalities are invariants (research doc section 14): a violation is a finding, never a derivation.
+identities:
+  - identity_id: arr_from_mrr
+    equation: arr = mrr * 12
+    terms: [arr, mrr]
+    validity_conditions: [same entity, same as_of_date, same currency, stock and stock]
+    tolerance_policy: currency_default
+
+  - identity_id: net_new_arr_from_arr
+    equation: "net_new_arr = arr[t] - arr[t-1]"
+    terms: [net_new_arr, arr]
+    validity_conditions:
+      - same entity and same currency
+      - net_new_arr is the flow over the period from t-1 to t
+      - same FX basis for arr at both period ends
+      - acquired ARR is treated the same way in arr and in net_new_arr
+    tolerance_policy: currency_default
+
+  # Invariant 11: when the bridge does not close, the residual is the finding, and its sign
+  # shows which way the presentation leans.
+  - identity_id: mrr_bridge
+    equation: "mrr[t] = mrr[t-1] + mrr_new + mrr_expansion + mrr_reactivation - mrr_contraction - mrr_churned"
+    terms: [mrr, mrr_new, mrr_expansion, mrr_reactivation, mrr_contraction, mrr_churned]
+    validity_conditions:
+      - same entity and same currency
+      - mrr is the stock at t-1 and at t, all other terms are flows over the period from t-1 to t
+      - same FX basis at both ends, an FX line shown on the bridge is a reconciling item and not a residual
+      - a reactivated customer counts in mrr_new or in mrr_reactivation, not in both
+      - a term that the deck does not show is zero only when the deck says so
+      - check only, never derive a flow term as the residual
+    tolerance_policy: currency_default
+
+  - identity_id: nrr_from_bridge
+    equation: "nrr = (arr[t-12m] + 12 * (mrr_expansion - mrr_contraction - mrr_churned)) / arr[t-12m]"
+    terms: [nrr, arr, mrr_expansion, mrr_contraction, mrr_churned]
+    validity_conditions:
+      - same entity and same currency
+      - nrr covers the 12 months that end at its as_of_date, arr is the stock at the start of that window
+      - the flows are summed over the same 12 months
+      - the flows include only customers present at the start of the window, with no reactivation
+    tolerance_policy: percent_default
+
+  - identity_id: grr_from_bridge
+    equation: "grr = (arr[t-12m] - 12 * (mrr_contraction + mrr_churned)) / arr[t-12m]"
+    terms: [grr, arr, mrr_contraction, mrr_churned]
+    validity_conditions:
+      - same entity and same currency
+      - grr covers the 12 months that end at its as_of_date, arr is the stock at the start of that window
+      - the flows are summed over the same 12 months
+      - the flows include only customers present at the start of the window
+    tolerance_policy: percent_default
+
+  # Invariant 1: a violation is an arithmetic or definitional error in the retention block.
+  - identity_id: nrr_ge_grr
+    equation: nrr >= grr
+    terms: [nrr, grr]
+    validity_conditions:
+      - same entity
+      - same 12-month window
+      - same customer base and same revenue basis
+    tolerance_policy: inequality
+
+  # Invariant 2: a violation suggests ARR and recognised revenue are used interchangeably.
+  # Only for a growing business: 12 months of revenue are close to the average ARR of those
+  # months, and that average is below the year-end ARR only when ARR grew. A flat or contracting
+  # business can have revenue above ARR, so the growth condition below is required.
+  - identity_id: arr_ge_revenue_recognised
+    equation: arr >= revenue_recognised
+    terms: [arr, revenue_recognised]
+    validity_conditions:
+      - same entity and same currency
+      - revenue_recognised covers the 12 months that end at the arr as_of_date
+      - arr grew more than 30% over those 12 months, arr[t] / arr[t-12m] - 1 > 0.30
+      - revenue_services plus revenue_hardware is below 10% of revenue_recognised
+    tolerance_policy: inequality
+
+  # Invariant 5: a violation is denominator drift.
+  - identity_id: customers_paying_le_users_registered
+    equation: customers_paying <= users_registered
+    terms: [customers_paying, users_registered]
+    validity_conditions:
+      - same entity and same as_of_date
+      - same product scope
+      - the product has user registration
+    tolerance_policy: inequality
+
+  # Invariant 6: a violation is a definition switch.
+  - identity_id: seats_active_le_seats_licensed
+    equation: seats_active <= seats_licensed
+    terms: [seats_active, seats_licensed]
+    validity_conditions:
+      - same entity and same as_of_date
+      - same customer scope
+      - contracts do not allow over-deployment with a later true-up
+    tolerance_policy: inequality
+
+  # Invariant 12: a linear conversion fails this check. annual = monthly * 12 overstates annual
+  # churn. monthly = annual / 12 understates monthly churn and inflates lifetime and LTV.
+  - identity_id: churn_logo_annual_from_monthly
+    equation: "churn_logo_annual = 1 - (1 - churn_logo_monthly)^12"
+    terms: [churn_logo_annual, churn_logo_monthly]
+    validity_conditions:
+      - same entity
+      - churn_logo_monthly is the average monthly rate over the same 12 months
+      - same denominator basis (start, average or end base)
+    tolerance_policy: percent_default
+
+  # S3-19: the core listed-company IFRS identities. Every term is offset "same".
+  - identity_id: gross_profit_from_revenue
+    equation: gross_profit = revenue_recognised - cost_of_sales
+    terms: [gross_profit, revenue_recognised, cost_of_sales]
+    validity_conditions:
+      - same entity and same currency
+      - same period and same period type
+      - same reporting basis and same segment or region
+      - every cost term stored as a positive amount
+    tolerance_policy: currency_default
+
+  - identity_id: ebitda_from_ebit
+    equation: ebitda = ebit + d_and_a
+    terms: [ebitda, ebit, d_and_a]
+    validity_conditions:
+      - same entity and same currency
+      - same period and same period type
+      - same reporting basis and same segment or region
+      - every cost term stored as a positive amount
+    tolerance_policy: currency_default
+
+  - identity_id: gross_margin_from_revenue
+    equation: gross_margin = 100 * gross_profit / revenue_recognised
+    terms: [gross_margin, gross_profit, revenue_recognised]
+    validity_conditions:
+      - same entity and same currency
+      - same period and same period type
+      - same reporting basis and same segment or region
+      - every cost term stored as a positive amount
+    tolerance_policy: percent_default
+
+  - identity_id: ebitda_margin_from_revenue
+    equation: ebitda_margin = 100 * ebitda / revenue_recognised
+    terms: [ebitda_margin, ebitda, revenue_recognised]
+    validity_conditions:
+      - same entity and same currency
+      - same period and same period type
+      - same reporting basis and same segment or region
+      - every cost term stored as a positive amount
+    tolerance_policy: percent_default
+
+  - identity_id: ebitda_adjusted_margin_from_revenue
+    equation: ebitda_adjusted_margin = 100 * ebitda_adjusted / revenue_recognised
+    terms: [ebitda_adjusted_margin, ebitda_adjusted, revenue_recognised]
+    validity_conditions:
+      - same entity and same currency
+      - same period and same period type
+      - same reporting basis and same segment or region
+      - every cost term stored as a positive amount
+    tolerance_policy: percent_default
+
+  - identity_id: ebit_margin_from_revenue
+    equation: ebit_margin = 100 * ebit / revenue_recognised
+    terms: [ebit_margin, ebit, revenue_recognised]
+    validity_conditions:
+      - same entity and same currency
+      - same period and same period type
+      - same reporting basis and same segment or region
+      - every cost term stored as a positive amount
+    tolerance_policy: percent_default
+
+  - identity_id: net_margin_from_revenue
+    equation: net_margin = 100 * net_income / revenue_recognised
+    terms: [net_margin, net_income, revenue_recognised]
+    validity_conditions:
+      - same entity and same currency
+      - same period and same period type
+      - same reporting basis and same segment or region
+      - every cost term stored as a positive amount
+    tolerance_policy: percent_default
+
+  - identity_id: net_income_from_ebt
+    equation: net_income = ebt - income_tax_expense
+    terms: [net_income, ebt, income_tax_expense]
+    validity_conditions:
+      - same entity and same currency
+      - same period and same period type
+      - same reporting basis and same segment or region
+      - every cost term stored as a positive amount
+      - the period has no discontinued-operations line
+      - net_income includes non-controlling interests
+      - income_tax_expense is stored unsigned, so the check also accepts ebt + income_tax_expense (a tax credit)
+    tolerance_policy: currency_default

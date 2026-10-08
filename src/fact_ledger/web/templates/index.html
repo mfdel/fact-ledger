@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Pre-Valuation Intelligence Layer</h1>
+<p>No briefs yet. The analyst brief renders here from stage S3.</p>
+<p><button hx-get="/health" hx-target="#health" hx-swap="innerHTML">Check service health</button></p>
+<pre id="health"></pre>
+{% endblock %}

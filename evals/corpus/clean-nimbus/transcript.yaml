@@ -1,0 +1,241 @@
+# Synthetic corpus case. No real company data.
+#
+# Clean control. Zero planted defects. Decoys that must raise no flag:
+# nimbus-03 "~€8m" against nimbus-02 8,064,000; arr = mrr * 12; churn 0.8% monthly against 9.2%
+# annual; nrr >= grr; paying customers <= registered users; the closing bridge.
+#
+# Nimbus shape (tests/fixtures/transcripts/synthetic_deck.yaml): one deck, origin
+# nimbus-management, reliability 4, EUR. nimbus-04 and nimbus-12 are left out. The Q4 2024 MRR
+# bridge on p12 closes: 598 + 52 + 31 + 0 - 4 - 5 = 672 (EUR thousand).
+defaults: {entity_id: nimbus, origin_id: nimbus-management, document_id: nimbus-deck-2025,
+           source_type: deck, reliability: 4, bias_direction: up, published_date: 2025-03-01,
+           unit: EUR, currency: EUR}
+observations:
+  - {observation_id: nimbus-01, metric_id: arr, value: "5400000", stated_precision: "50000",
+     period_start: 2023-12-31, period_end: 2023-12-31, period_type: point_in_time,
+     as_of_date: 2023-12-31, locator: "p4 chart", stated_label: "ARR"}  # printed "€5.4m"
+  - {observation_id: nimbus-02, metric_id: arr, value: "8064000", stated_precision: "500",
+     period_start: 2024-12-31, period_end: 2024-12-31, period_type: point_in_time,
+     as_of_date: 2024-12-31, locator: "p4 chart",
+     stated_label: "Annual recurring revenue (exit)"}  # printed "€8,064k"
+  - {observation_id: nimbus-03, metric_id: arr, value: "8000000", stated_precision: "500000",
+     period_start: 2024-12-31, period_end: 2024-12-31, period_type: point_in_time,
+     as_of_date: 2024-12-31, locator: "p1", stated_label: "ARR"}  # printed "~€8m ARR"
+  - {observation_id: nimbus-05, metric_id: arr_run_rate, value: "8280000",
+     stated_precision: "500", period_start: 2024-12-01, period_end: 2024-12-31,
+     period_type: month, as_of_date: 2024-12-31, locator: "p9",
+     stated_label: "Run-rate ARR (Dec-24 x12)"}  # printed "€8,280k"
+  - {observation_id: nimbus-06, metric_id: mrr, value: "450000", stated_precision: "500",
+     period_start: 2023-12-31, period_end: 2023-12-31, period_type: point_in_time,
+     as_of_date: 2023-12-31, locator: "p7 chart", stated_label: "MRR"}  # printed "€450k"
+  - {observation_id: nimbus-07, metric_id: mrr, value: "598000", stated_precision: "500",
+     period_start: 2024-09-30, period_end: 2024-09-30, period_type: point_in_time,
+     as_of_date: 2024-09-30, locator: "p7 chart", stated_label: "MRR"}  # printed "€598k"
+  - {observation_id: nimbus-08, metric_id: mrr, value: "672000", stated_precision: "500",
+     period_start: 2024-12-31, period_end: 2024-12-31, period_type: point_in_time,
+     as_of_date: 2024-12-31, locator: "p7 chart", stated_label: "MRR"}  # printed "€672k"
+  - {observation_id: nimbus-09, metric_id: revenue_recognised, value: "4650000",
+     stated_precision: "500", period_start: 2023-01-01, period_end: 2023-12-31, period_type: fy,
+     as_of_date: 2023-12-31, locator: "p8 P&L table", stated_label: "Total revenue"}  # printed "€4,650k"
+  - {observation_id: nimbus-10, metric_id: revenue_recognised, value: "6930000",
+     stated_precision: "500", period_start: 2024-01-01, period_end: 2024-12-31, period_type: fy,
+     as_of_date: 2024-12-31, locator: "p8 P&L table", stated_label: "Total revenue"}  # printed "€6,930k"
+  - {observation_id: nimbus-11, metric_id: revenue_recognised, value: "1985000",
+     stated_precision: "500", period_start: 2024-10-01, period_end: 2024-12-31,
+     period_type: quarter, as_of_date: 2024-12-31, locator: "p8 P&L table",
+     stated_label: "Q4 revenue"}  # printed "€1,985k"
+  - {observation_id: nimbus-13, metric_id: churn_logo_annual, value: "10.4",
+     stated_precision: "0.05", unit: percent, currency: null, period_start: 2023-01-01,
+     period_end: 2023-12-31, period_type: fy, as_of_date: 2023-12-31, locator: "p10",
+     stated_label: "Annual logo churn"}  # printed "10.4%"
+  - {observation_id: nimbus-14, metric_id: churn_logo_annual, value: "9.2",
+     stated_precision: "0.05", unit: percent, currency: null, period_start: 2024-01-01,
+     period_end: 2024-12-31, period_type: fy, as_of_date: 2024-12-31, locator: "p10",
+     stated_label: "Annual logo churn"}  # printed "9.2%"
+  - {observation_id: nimbus-15, metric_id: churn_logo_monthly, value: "0.8",
+     stated_precision: "0.05", unit: percent, currency: null, period_start: 2024-01-01,
+     period_end: 2024-12-31, period_type: fy, as_of_date: 2024-12-31, locator: "p10 footnote",
+     stated_label: "Avg. monthly logo churn"}  # printed "0.8%"
+  - {observation_id: nimbus-16, metric_id: customers_paying, value: "142", unit: count,
+     currency: null, period_start: 2023-12-31, period_end: 2023-12-31,
+     period_type: point_in_time, as_of_date: 2023-12-31, locator: "p6",
+     stated_label: "Paying customers"}  # printed "142"
+  - {observation_id: nimbus-17, metric_id: customers_paying, value: "186", unit: count,
+     currency: null, period_start: 2024-12-31, period_end: 2024-12-31,
+     period_type: point_in_time, as_of_date: 2024-12-31, locator: "p6",
+     stated_label: "Paying customers"}  # printed "186"
+  - {observation_id: nimbus-18, metric_id: users_registered, value: "3950", unit: count,
+     currency: null, period_start: 2024-12-31, period_end: 2024-12-31,
+     period_type: point_in_time, as_of_date: 2024-12-31, locator: "p6",
+     stated_label: "Registered users"}  # printed "3,950"
+  - {observation_id: nimbus-19, metric_id: nrr, value: "118", stated_precision: "0.5",
+     unit: percent, currency: null, period_start: 2024-01-01, period_end: 2024-12-31,
+     period_type: fy, as_of_date: 2024-12-31, locator: "p11",
+     stated_label: "Net revenue retention"}  # printed "118%"
+  - {observation_id: nimbus-20, metric_id: grr, value: "91", stated_precision: "0.5",
+     unit: percent, currency: null, period_start: 2024-01-01, period_end: 2024-12-31,
+     period_type: fy, as_of_date: 2024-12-31, locator: "p11",
+     stated_label: "Gross revenue retention"}  # printed "91%"
+  - {observation_id: nimbus-31, metric_id: mrr_new, value: "52000", stated_precision: "500",
+     period_start: 2024-10-01, period_end: 2024-12-31, period_type: quarter,
+     as_of_date: 2024-12-31, locator: "p12 waterfall", stated_label: "New MRR"}  # printed "€52k"
+  - {observation_id: nimbus-32, metric_id: mrr_expansion, value: "31000",
+     stated_precision: "500", period_start: 2024-10-01, period_end: 2024-12-31,
+     period_type: quarter, as_of_date: 2024-12-31, locator: "p12 waterfall",
+     stated_label: "Expansion MRR"}  # printed "€31k"
+  - {observation_id: nimbus-33, metric_id: mrr_reactivation, value: "0",
+     period_start: 2024-10-01, period_end: 2024-12-31, period_type: quarter,
+     as_of_date: 2024-12-31, locator: "p12 waterfall", stated_label: "No reactivations"}  # printed "none"
+  - {observation_id: nimbus-34, metric_id: mrr_contraction, value: "4000",
+     stated_precision: "500", period_start: 2024-10-01, period_end: 2024-12-31,
+     period_type: quarter, as_of_date: 2024-12-31, locator: "p12 waterfall",
+     stated_label: "Contraction MRR"}  # printed "€4k"
+  - {observation_id: nimbus-35, metric_id: mrr_churned, value: "5000", stated_precision: "500",
+     period_start: 2024-10-01, period_end: 2024-12-31, period_type: quarter,
+     as_of_date: 2024-12-31, locator: "p12 waterfall", stated_label: "Churned MRR"}  # printed "€5k"
+  # Story S4-01: one row for each other b2b_saas expected metric, so all 53 expected metrics
+  # are present on the clean control. Each row is the only row of its
+  # metric, period and qualifier, so it goes into no comparison. Two checks read them and hold:
+  # seats_active <= seats_licensed (nimbus-37, nimbus-38), and services plus hardware revenue
+  # (nimbus-43, nimbus-44) is 5.1% of FY2024 revenue, below the 10% scope condition of
+  # arr >= revenue. nimbus-46 to nimbus-48 are region or segment rows only (S4 decision 17).
+  # nimbus-39 is not used here: the S4-02 cases add it.
+  - {observation_id: nimbus-37, metric_id: seats_active, value: "2210", unit: count,
+     currency: null, period_start: 2024-12-31, period_end: 2024-12-31, period_type: point_in_time,
+     as_of_date: 2024-12-31, locator: "p6", stated_label: "Active seats"}  # printed "2,210"
+  - {observation_id: nimbus-38, metric_id: seats_licensed, value: "2600", unit: count,
+     currency: null, period_start: 2024-12-31, period_end: 2024-12-31, period_type: point_in_time,
+     as_of_date: 2024-12-31, locator: "p6", stated_label: "Licensed seats"}  # printed "2,600"
+  - {observation_id: nimbus-41, metric_id: revenue_subscription, value: "6350000",
+     stated_precision: "500", period_start: 2024-01-01, period_end: 2024-12-31, period_type: fy,
+     as_of_date: 2024-12-31, locator: "p5", stated_label: "Subscription revenue"}  # printed "€6,350k"
+  - {observation_id: nimbus-42, metric_id: revenue_usage, value: "230000", stated_precision: "500",
+     period_start: 2024-01-01, period_end: 2024-12-31, period_type: fy, as_of_date: 2024-12-31,
+     locator: "p5", stated_label: "Usage revenue"}  # printed "€230k"
+  - {observation_id: nimbus-43, metric_id: revenue_services, value: "280000",
+     stated_precision: "500", period_start: 2024-01-01, period_end: 2024-12-31, period_type: fy,
+     as_of_date: 2024-12-31, locator: "p5",
+     stated_label: "Professional services revenue"}  # printed "€280k"
+  - {observation_id: nimbus-44, metric_id: revenue_hardware, value: "70000",
+     stated_precision: "500", period_start: 2024-01-01, period_end: 2024-12-31, period_type: fy,
+     as_of_date: 2024-12-31, locator: "p5", stated_label: "Hardware revenue"}  # printed "€70k"
+  - {observation_id: nimbus-45, metric_id: recurring_revenue_share, value: "95",
+     stated_precision: "0.5", unit: percent, currency: null, period_start: 2024-01-01,
+     period_end: 2024-12-31, period_type: fy, as_of_date: 2024-12-31, locator: "p5",
+     stated_label: "% recurring"}  # printed "95%"
+  - {observation_id: nimbus-46, metric_id: revenue_by_geography, value: "4160000",
+     stated_precision: "500", period_start: 2024-01-01, period_end: 2024-12-31, period_type: fy,
+     as_of_date: 2024-12-31, locator: "p5", stated_label: "Revenue by region",
+     region: "Nordics"}  # printed "Nordics €4,160k"
+  - {observation_id: nimbus-47, metric_id: revenue_by_segment, value: "3600000",
+     stated_precision: "500", period_start: 2024-01-01, period_end: 2024-12-31, period_type: fy,
+     as_of_date: 2024-12-31, locator: "p5", stated_label: "Revenue by segment",
+     segment: "Mid-market"}  # printed "Mid-market €3,600k"
+  - {observation_id: nimbus-48, metric_id: revenue_by_currency, value: "5300000",
+     stated_precision: "500", period_start: 2024-01-01, period_end: 2024-12-31, period_type: fy,
+     as_of_date: 2024-12-31, locator: "p5", stated_label: "Revenue by currency",
+     segment: "EUR-billed"}  # printed "EUR-billed €5,300k"
+  - {observation_id: nimbus-49, metric_id: revenue_concentration_top1, value: "4",
+     stated_precision: "0.5", unit: percent, currency: null, period_start: 2024-01-01,
+     period_end: 2024-12-31, period_type: fy, as_of_date: 2024-12-31, locator: "p13",
+     stated_label: "Top customer %"}  # printed "4%"
+  - {observation_id: nimbus-50, metric_id: revenue_concentration_top5, value: "14",
+     stated_precision: "0.5", unit: percent, currency: null, period_start: 2024-01-01,
+     period_end: 2024-12-31, period_type: fy, as_of_date: 2024-12-31, locator: "p13",
+     stated_label: "Top 5 concentration"}  # printed "14%"
+  - {observation_id: nimbus-51, metric_id: revenue_concentration_top10, value: "22",
+     stated_precision: "0.5", unit: percent, currency: null, period_start: 2024-01-01,
+     period_end: 2024-12-31, period_type: fy, as_of_date: 2024-12-31, locator: "p13",
+     stated_label: "Top 10 concentration"}  # printed "22%"
+  - {observation_id: nimbus-52, metric_id: arr_contracted, value: "8420000",
+     stated_precision: "500", period_start: 2024-12-31, period_end: 2024-12-31,
+     period_type: point_in_time, as_of_date: 2024-12-31, locator: "p3",
+     stated_label: "Contracted ARR"}  # printed "€8,420k"
+  - {observation_id: nimbus-53, metric_id: bookings_acv, value: "3500000",
+     stated_precision: "50000", period_start: 2024-01-01, period_end: 2024-12-31, period_type: fy,
+     as_of_date: 2024-12-31, locator: "p3", stated_label: "ACV bookings"}  # printed "€3.5m"
+  - {observation_id: nimbus-54, metric_id: bookings_tcv, value: "6400000",
+     stated_precision: "50000", period_start: 2024-01-01, period_end: 2024-12-31, period_type: fy,
+     as_of_date: 2024-12-31, locator: "p3", stated_label: "TCV bookings"}  # printed "€6.4m"
+  - {observation_id: nimbus-55, metric_id: backlog_rpo, value: "7900000",
+     stated_precision: "50000", period_start: 2024-12-31, period_end: 2024-12-31,
+     period_type: point_in_time, as_of_date: 2024-12-31, locator: "p3",
+     stated_label: "RPO"}  # printed "€7.9m"
+  - {observation_id: nimbus-56, metric_id: billings, value: "7480000", stated_precision: "500",
+     period_start: 2024-01-01, period_end: 2024-12-31, period_type: fy, as_of_date: 2024-12-31,
+     locator: "p3", stated_label: "Billings"}  # printed "€7,480k"
+  - {observation_id: nimbus-57, metric_id: deferred_revenue, value: "2140000",
+     stated_precision: "500", period_start: 2024-12-31, period_end: 2024-12-31,
+     period_type: point_in_time, as_of_date: 2024-12-31, locator: "p3",
+     stated_label: "Deferred revenue"}  # printed "€2,140k"
+  - {observation_id: nimbus-58, metric_id: churn_revenue_gross_monthly, value: "0.8",
+     stated_precision: "0.05", unit: percent, currency: null, period_start: 2024-01-01,
+     period_end: 2024-12-31, period_type: fy, as_of_date: 2024-12-31, locator: "p10",
+     stated_label: "Monthly gross revenue churn"}  # printed "0.8%"
+  - {observation_id: nimbus-59, metric_id: renewal_rate, value: "87", stated_precision: "0.5",
+     unit: percent, currency: null, period_start: 2024-01-01, period_end: 2024-12-31,
+     period_type: fy, as_of_date: 2024-12-31, locator: "p11",
+     stated_label: "Renewal rate"}  # printed "87%"
+  - {observation_id: nimbus-60, metric_id: nrr_cohort_12m, value: "121", stated_precision: "0.5",
+     unit: percent, currency: null, period_start: 2024-01-01, period_end: 2024-12-31,
+     period_type: fy, as_of_date: 2024-12-31, locator: "p17",
+     stated_label: "M12 cohort NRR"}  # printed "121%"
+  - {observation_id: nimbus-61, metric_id: cohort_retention_curve, value: "88",
+     stated_precision: "0.5", unit: percent, currency: null, period_start: 2024-01-01,
+     period_end: 2024-12-31, period_type: fy, as_of_date: 2024-12-31, locator: "p17",
+     stated_label: "Cohort retention"}  # printed "88%"
+  - {observation_id: nimbus-62, metric_id: customer_lifetime_months, value: "125",
+     stated_precision: "0.5", unit: months, currency: null, period_start: 2024-12-31,
+     period_end: 2024-12-31, period_type: point_in_time, as_of_date: 2024-12-31, locator: "p17",
+     stated_label: "Expected customer lifetime"}  # printed "125 months"
+  - {observation_id: nimbus-63, metric_id: customer_tenure_median, value: "26",
+     stated_precision: "0.5", unit: months, currency: null, period_start: 2024-12-31,
+     period_end: 2024-12-31, period_type: point_in_time, as_of_date: 2024-12-31, locator: "p17",
+     stated_label: "Median customer tenure"}  # printed "26 months"
+  - {observation_id: nimbus-64, metric_id: contract_length_avg, value: "22",
+     stated_precision: "0.5", unit: months, currency: null, period_start: 2024-12-31,
+     period_end: 2024-12-31, period_type: point_in_time, as_of_date: 2024-12-31, locator: "p13",
+     stated_label: "Average contract term"}  # printed "22 months"
+  - {observation_id: nimbus-65, metric_id: contract_annual_share, value: "78",
+     stated_precision: "0.5", unit: percent, currency: null, period_start: 2024-12-31,
+     period_end: 2024-12-31, period_type: point_in_time, as_of_date: 2024-12-31, locator: "p13",
+     stated_label: "% on annual plans"}  # printed "78%"
+  - {observation_id: nimbus-66, metric_id: payment_terms_upfront_share, value: "64",
+     stated_precision: "0.5", unit: percent, currency: null, period_start: 2024-12-31,
+     period_end: 2024-12-31, period_type: point_in_time, as_of_date: 2024-12-31, locator: "p13",
+     stated_label: "% billed upfront"}  # printed "64%"
+  - {observation_id: nimbus-67, metric_id: acv_avg, value: "29700", stated_precision: "50",
+     period_start: 2024-01-01, period_end: 2024-12-31, period_type: fy, as_of_date: 2024-12-31,
+     locator: "p13", stated_label: "Average ACV"}  # printed "€29.7k"
+  - {observation_id: nimbus-68, metric_id: asp, value: "3050", stated_precision: "0.5",
+     period_start: 2024-01-01, period_end: 2024-12-31, period_type: fy, as_of_date: 2024-12-31,
+     locator: "p13", stated_label: "ASP"}  # printed "€3,050"
+  - {observation_id: nimbus-69, metric_id: seat_utilisation, value: "85", stated_precision: "0.5",
+     unit: percent, currency: null, period_start: 2024-12-31, period_end: 2024-12-31,
+     period_type: point_in_time, as_of_date: 2024-12-31, locator: "p6",
+     stated_label: "Seat utilisation"}  # printed "85%"
+  - {observation_id: nimbus-70, metric_id: customers_active, value: "179", unit: count,
+     currency: null, period_start: 2024-12-31, period_end: 2024-12-31, period_type: point_in_time,
+     as_of_date: 2024-12-31, locator: "p6", stated_label: "Active customers"}  # printed "179"
+  - {observation_id: nimbus-71, metric_id: logos, value: "171", unit: count, currency: null,
+     period_start: 2024-12-31, period_end: 2024-12-31, period_type: point_in_time,
+     as_of_date: 2024-12-31, locator: "p6", stated_label: "Logos"}  # printed "171"
+  - {observation_id: nimbus-72, metric_id: customers_new, value: "57", unit: count, currency: null,
+     period_start: 2024-01-01, period_end: 2024-12-31, period_type: fy, as_of_date: 2024-12-31,
+     locator: "p6", stated_label: "New customers"}  # printed "57"
+  - {observation_id: nimbus-73, metric_id: customers_churned, value: "13", unit: count,
+     currency: null, period_start: 2024-01-01, period_end: 2024-12-31, period_type: fy,
+     as_of_date: 2024-12-31, locator: "p6", stated_label: "Churned customers"}  # printed "13"
+  - {observation_id: nimbus-74, metric_id: customers_enterprise_share, value: "12",
+     stated_precision: "0.5", unit: percent, currency: null, period_start: 2024-12-31,
+     period_end: 2024-12-31, period_type: point_in_time, as_of_date: 2024-12-31, locator: "p6",
+     stated_label: "Enterprise share (ARR above €50k)"}  # printed "12%"
+  - {observation_id: nimbus-75, metric_id: arpu, value: "3613", stated_precision: "0.5",
+     period_start: 2024-12-01, period_end: 2024-12-31, period_type: month, as_of_date: 2024-12-31,
+     locator: "p6", stated_label: "ARPA"}  # printed "€3,613"
+  - {observation_id: nimbus-76, metric_id: burn_gross, value: "780000", stated_precision: "500",
+     period_start: 2024-12-01, period_end: 2024-12-31, period_type: month, as_of_date: 2024-12-31,
+     locator: "p19", stated_label: "Gross burn"}  # printed "€780k"
+  - {observation_id: nimbus-77, metric_id: burn_net, value: "150000", stated_precision: "500",
+     period_start: 2024-12-01, period_end: 2024-12-31, period_type: month, as_of_date: 2024-12-31,
+     locator: "p19", stated_label: "Net burn"}  # printed "€150k"

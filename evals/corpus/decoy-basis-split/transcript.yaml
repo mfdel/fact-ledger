@@ -1,0 +1,25 @@
+# Synthetic corpus case. No real company data.
+#
+# Planted: basis_gap (story S4-04, criterion 1). Story S3-12, criterion 2: one metric and one
+# period on two bases. The pro forma value and the reported value are two facts, so they never
+# compare and never corroborate. The gap of 3,000,000 is outside the tolerance (the larger of
+# 100,000 and 360,000), so the reported row orbit-02 gets one basis_gap finding.
+#
+# The last row carries the reported basis for the same metric in the year before. One basis,
+# one period each, so the two reported values are two periods of one fact line, as today.
+defaults: {entity_id: orbit, origin_id: orbit-management, document_id: orbit-deck-2025,
+           source_type: deck, reliability: 4, bias_direction: up, published_date: 2025-03-01,
+           unit: EUR, currency: EUR}
+observations:
+  - {observation_id: orbit-01, metric_id: ebitda_adjusted, value: "36000000",
+     stated_precision: "50000", period_start: 2024-01-01, period_end: 2024-12-31,
+     period_type: fy, as_of_date: 2024-12-31, locator: "p7", stated_label: "Adjusted EBITDA",
+     basis: pro_forma}  # printed "Adjusted EBITDA (pro forma)  36.0"
+  - {observation_id: orbit-02, metric_id: ebitda_adjusted, value: "33000000",
+     stated_precision: "50000", period_start: 2024-01-01, period_end: 2024-12-31,
+     period_type: fy, as_of_date: 2024-12-31, locator: "p7", stated_label: "Adjusted EBITDA",
+     basis: reported}  # printed "Adjusted EBITDA (reported)  33.0"
+  - {observation_id: orbit-03, metric_id: ebitda_adjusted, value: "28000000",
+     stated_precision: "50000", period_start: 2023-01-01, period_end: 2023-12-31,
+     period_type: fy, as_of_date: 2023-12-31, locator: "p7", stated_label: "Adjusted EBITDA",
+     basis: reported}  # printed "Adjusted EBITDA (reported)  28.0"

@@ -1,0 +1,104 @@
+# Synthetic deck transcript. No real company data.
+#
+# Nimbus: an invented mid-market B2B SaaS company. One management deck, published 2025-03-01.
+# Conventions:
+# - stated_precision is half a unit of the last printed digit ("~€8m" -> 500000, "€5.4m" -> 50000,
+#   "€672k" -> 500, "9.2%" -> 0.05). No stated_precision means the deck prints the exact figure.
+# - stated_label holds the label words only. The comment on each row shows the printed figure.
+# - Rows marked PLANTED carry a deliberate disagreement. The S2 seeded-error corpus can reuse them.
+#   Keep both values. Never average them.
+# Internal checks that must hold (not planted):
+# - arr = mrr * 12 at 2023-12-31 (5400000 = 450000 * 12) and at 2024-12-31 (8064000 = 672000 * 12).
+# - churn_logo_annual FY2024 9.2 is within 1 - (1 - 0.008)^12 = 9.19 (monthly 0.8 +/- 0.05).
+# - nrr >= grr (118 >= 91). customers_paying <= users_registered (186 <= 3950).
+defaults: {entity_id: nimbus, origin_id: nimbus-management, document_id: nimbus-deck-2025,
+           source_type: deck, reliability: 4, bias_direction: up, published_date: 2025-03-01,
+           unit: EUR, currency: EUR}
+observations:
+  # ARR. The label changes across periods on the same chart: "ARR" (FY2023), then
+  # "Annual recurring revenue (exit)" (FY2024). Same metric, same definition note on p4.
+  - {observation_id: nimbus-01, metric_id: arr, value: "5400000", stated_precision: "50000",
+     period_start: 2023-12-31, period_end: 2023-12-31, period_type: point_in_time,
+     as_of_date: 2023-12-31, locator: "p4 chart", stated_label: "ARR"}  # printed "€5.4m"
+  - {observation_id: nimbus-02, metric_id: arr, value: "8064000", stated_precision: "500",
+     period_start: 2024-12-31, period_end: 2024-12-31, period_type: point_in_time,
+     as_of_date: 2024-12-31, locator: "p4 chart", stated_label: "Annual recurring revenue (exit)"}  # printed "€8,064k"
+  # Rounded headline figure. Within stated precision of nimbus-02: consistent, no finding.
+  - {observation_id: nimbus-03, metric_id: arr, value: "8000000", stated_precision: "500000",
+     period_start: 2024-12-31, period_end: 2024-12-31, period_type: point_in_time,
+     as_of_date: 2024-12-31, locator: "p1", stated_label: "ARR"}  # printed "~€8m ARR"
+  # PLANTED: disagrees with nimbus-02 (p4, 8064000) for the same entity, metric and period.
+  # Same origin, same label. Gap 614000 (7.6%). Outside both stated precisions and outside the
+  # "~€8m" range of nimbus-03. Keep both rows.
+  - {observation_id: nimbus-04, metric_id: arr, value: "7450000", stated_precision: "500",
+     period_start: 2024-12-31, period_end: 2024-12-31, period_type: point_in_time,
+     as_of_date: 2024-12-31, locator: "p14 appendix table",
+     stated_label: "Annual recurring revenue (exit)"}  # printed "€7,450k"
+  # Near-miss trap: December recognised revenue (incl. services) x12. Not arr. It is 8280000,
+  # not 8064000, because it includes 18000 of December services revenue.
+  - {observation_id: nimbus-05, metric_id: arr_run_rate, value: "8280000", stated_precision: "500",
+     period_start: 2024-12-01, period_end: 2024-12-31, period_type: month,
+     as_of_date: 2024-12-31, locator: "p9", stated_label: "Run-rate ARR (Dec-24 x12)"}  # printed "€8,280k"
+
+  # MRR at month end (point in time).
+  - {observation_id: nimbus-06, metric_id: mrr, value: "450000", stated_precision: "500",
+     period_start: 2023-12-31, period_end: 2023-12-31, period_type: point_in_time,
+     as_of_date: 2023-12-31, locator: "p7 chart", stated_label: "MRR"}  # printed "€450k"
+  - {observation_id: nimbus-07, metric_id: mrr, value: "598000", stated_precision: "500",
+     period_start: 2024-09-30, period_end: 2024-09-30, period_type: point_in_time,
+     as_of_date: 2024-09-30, locator: "p7 chart", stated_label: "MRR"}  # printed "€598k"
+  - {observation_id: nimbus-08, metric_id: mrr, value: "672000", stated_precision: "500",
+     period_start: 2024-12-31, period_end: 2024-12-31, period_type: point_in_time,
+     as_of_date: 2024-12-31, locator: "p7 chart", stated_label: "MRR"}  # printed "€672k"
+
+  # Recognised revenue. FY and Q4 flows that end on the same date as the point-in-time rows.
+  - {observation_id: nimbus-09, metric_id: revenue_recognised, value: "4650000", stated_precision: "500",
+     period_start: 2023-01-01, period_end: 2023-12-31, period_type: fy,
+     as_of_date: 2023-12-31, locator: "p8 P&L table", stated_label: "Total revenue"}  # printed "€4,650k"
+  - {observation_id: nimbus-10, metric_id: revenue_recognised, value: "6930000", stated_precision: "500",
+     period_start: 2024-01-01, period_end: 2024-12-31, period_type: fy,
+     as_of_date: 2024-12-31, locator: "p8 P&L table", stated_label: "Total revenue"}  # printed "€6,930k"
+  - {observation_id: nimbus-11, metric_id: revenue_recognised, value: "1985000", stated_precision: "500",
+     period_start: 2024-10-01, period_end: 2024-12-31, period_type: quarter,
+     as_of_date: 2024-12-31, locator: "p8 P&L table", stated_label: "Q4 revenue"}  # printed "€1,985k"
+  # Ambiguous: p2 says "Revenue" with no definition. 7100000 matches neither recognised revenue
+  # (6930000) nor exit ARR (8064000). Period follows the label "2024" (FY). Do not resolve.
+  - {observation_id: nimbus-12, metric_id: revenue_unspecified, value: "7100000", stated_precision: "50000",
+     period_start: 2024-01-01, period_end: 2024-12-31, period_type: fy,
+     as_of_date: 2024-12-31, locator: "p2 executive summary", stated_label: "Revenue",
+     definition_status: ambiguous, candidate_metric_ids: [revenue_recognised, arr]}  # printed "Revenue 2024: €7.1m"
+
+  # Logo churn, in percent.
+  - {observation_id: nimbus-13, metric_id: churn_logo_annual, value: "10.4", stated_precision: "0.05",
+     unit: percent, currency: null,
+     period_start: 2023-01-01, period_end: 2023-12-31, period_type: fy,
+     as_of_date: 2023-12-31, locator: "p10", stated_label: "Annual logo churn"}  # printed "10.4%"
+  - {observation_id: nimbus-14, metric_id: churn_logo_annual, value: "9.2", stated_precision: "0.05",
+     unit: percent, currency: null,
+     period_start: 2024-01-01, period_end: 2024-12-31, period_type: fy,
+     as_of_date: 2024-12-31, locator: "p10", stated_label: "Annual logo churn"}  # printed "9.2%"
+  - {observation_id: nimbus-15, metric_id: churn_logo_monthly, value: "0.8", stated_precision: "0.05",
+     unit: percent, currency: null,
+     period_start: 2024-01-01, period_end: 2024-12-31, period_type: fy,
+     as_of_date: 2024-12-31, locator: "p10 footnote", stated_label: "Avg. monthly logo churn"}  # printed "0.8%"
+
+  # Customers and users. Exact counts, given as integers (no stated_precision).
+  - {observation_id: nimbus-16, metric_id: customers_paying, value: 142, unit: count, currency: null,
+     period_start: 2023-12-31, period_end: 2023-12-31, period_type: point_in_time,
+     as_of_date: 2023-12-31, locator: "p6", stated_label: "Paying customers"}  # printed "142"
+  - {observation_id: nimbus-17, metric_id: customers_paying, value: 186, unit: count, currency: null,
+     period_start: 2024-12-31, period_end: 2024-12-31, period_type: point_in_time,
+     as_of_date: 2024-12-31, locator: "p6", stated_label: "Paying customers"}  # printed "186"
+  - {observation_id: nimbus-18, metric_id: users_registered, value: 3950, unit: count, currency: null,
+     period_start: 2024-12-31, period_end: 2024-12-31, period_type: point_in_time,
+     as_of_date: 2024-12-31, locator: "p6", stated_label: "Registered users"}  # printed "3,950"
+
+  # Revenue retention, trailing twelve months to 2024-12-31, stated as FY2024.
+  - {observation_id: nimbus-19, metric_id: nrr, value: "118", stated_precision: "0.5",
+     unit: percent, currency: null,
+     period_start: 2024-01-01, period_end: 2024-12-31, period_type: fy,
+     as_of_date: 2024-12-31, locator: "p11", stated_label: "Net revenue retention"}  # printed "118%"
+  - {observation_id: nimbus-20, metric_id: grr, value: "91", stated_precision: "0.5",
+     unit: percent, currency: null,
+     period_start: 2024-01-01, period_end: 2024-12-31, period_type: fy,
+     as_of_date: 2024-12-31, locator: "p11", stated_label: "Gross revenue retention"}  # printed "91%"

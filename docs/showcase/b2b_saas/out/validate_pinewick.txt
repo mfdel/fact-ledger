@@ -1,0 +1,14 @@
+identity_id	period_start	period_end	period_type	status	reason	qualifier
+arr_from_mrr	2023-12-31	2023-12-31	point_in_time	held
+arr_from_mrr	2024-12-31	2024-12-31	point_in_time	held
+arr_ge_revenue_recognised	2023-12-31	2023-12-31	point_in_time	not_checked	arr not observed at 2022-12-31
+arr_ge_revenue_recognised	2024-12-31	2024-12-31	point_in_time	held
+churn_logo_annual_from_monthly	2024-01-01	2024-12-31	fy	held
+customers_paying_le_users_registered	2023-12-31	2023-12-31	point_in_time	not_checked	users_registered not observed at 2023-12-31
+customers_paying_le_users_registered	2024-12-31	2024-12-31	point_in_time	held
+grr_from_bridge	2024-01-01	2024-12-31	fy	not_checked	mrr_contraction not observed for fy 2024-01-01 to 2024-12-31
+mrr_bridge	2024-10-01	2024-12-31	quarter	held
+net_new_arr_from_arr	2024-01-01	2024-12-31	fy	held
+nrr_from_bridge	2024-01-01	2024-12-31	fy	not_checked	mrr_expansion not observed for fy 2024-01-01 to 2024-12-31
+nrr_ge_grr	2024-01-01	2024-12-31	fy	held
+seats_active_le_seats_licensed	2024-12-31	2024-12-31	point_in_time	held

@@ -1,0 +1,60 @@
+{
+  "model": "hand-written, not from a live model (S5-02): the answer a model would give for nimbus-press-2025.txt under extract_text_v1.md",
+  "pages": [
+    {
+      "values": [
+        {
+          "stated_label": "annual recurring revenue",
+          "printed": "€8.1",
+          "scale": "m",
+          "unit": "€",
+          "period_type": "point_in_time",
+          "period_start": "2024-12-31",
+          "period_end": "2024-12-31",
+          "candidate_metric_ids": [],
+          "segment": "",
+          "region": "",
+          "basis": "",
+          "paragraph": 2
+        },
+        {
+          "stated_label": "MRR",
+          "printed": "€675k",
+          "scale": "k",
+          "unit": "€",
+          "period_type": "point_in_time",
+          "period_start": null,
+          "period_end": null,
+          "candidate_metric_ids": [],
+          "segment": "",
+          "region": "",
+          "basis": "",
+          "paragraph": 4
+        },
+        {
+          "stated_label": "Revenue",
+          "printed": "€4.7",
+          "scale": "m",
+          "unit": "€",
+          "period_type": "fy",
+          "period_start": null,
+          "period_end": null,
+          "candidate_metric_ids": [
+            "revenue_recognised",
+            "arr",
+            "arr_run_rate",
+            "billings",
+            "revenue_subscription",
+            "revenue_gross",
+            "revenue_usage",
+            "mrr"
+          ],
+          "segment": "",
+          "region": "",
+          "basis": "",
+          "paragraph": 5
+        }
+      ]
+    }
+  ]
+}

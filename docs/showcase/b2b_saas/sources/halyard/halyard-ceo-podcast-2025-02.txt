@@ -1,0 +1,28 @@
+Fleet Forward podcast, episode 112, published 20 February 2025
+"Hardware and software at the same time"
+Guest: the chief executive of Halyard Fleet
+Transcript, auto-generated and lightly edited
+
+[00:00] HOST: Welcome back to Fleet Forward. Today I am with the chief executive of Halyard Fleet, the Dublin telematics company. Thanks for coming on.
+
+[00:41] CEO: Thanks for having me. Big fan of the show.
+
+[02:15] HOST: Let's start with the basics. What does Halyard actually sell?
+
+[02:22] CEO: We put our own tracker in the vehicle and we sell a monthly subscription per vehicle on top. Fleet managers see where the vans are, how they are driven, how much fuel they use, and the tachograph data is downloaded for them.
+
+[07:48] HOST: Hardware is hard. Why build your own device?
+
+[07:55] CEO: Because the data is only as good as the box. We sell the device close to cost. The money is in the software contract, and most fleets sign for three years.
+
+[14:02] CEO: It was a big year for us. We finished 2024 at about €22 million of ARR, and the UK is now our fastest-growing market. Next year is about the insurance product.
+
+[14:40] HOST: Tell me about that insurance product.
+
+[14:47] CEO: Insurers want to price the driver, not the postcode. We have the driving data, so we are piloting a product with two insurers this spring.
+
+[21:30] HOST: That's all we have time for. Thank you.
+
+[21:34] CEO: Thank you.
+
+This transcript is synthetic. The company, the people and the figures are invented for a software showcase.
